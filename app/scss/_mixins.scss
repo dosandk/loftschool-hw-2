@@ -1,0 +1,23 @@
+@mixin breakpoint($breakpoint) {
+    @media (max-width: $breakpoint) {
+        @content;
+    }
+}
+
+@mixin font-includer($font-names-scope, $font-path, $embed-woff: false) {
+    @each $font-name in $fira-fonts-names {
+        @include font-face('#{$font-name}',
+            font-files(
+                '#{$fira-font-path}/#{$font-name}.woff', 'woff',
+                '#{$fira-font-path}/#{$font-name}.ttf', 'truetype',
+                '#{$fira-font-path}/#{$font-name}.svg##{$font-name}', 'svg'
+            ),
+            '#{$fira-font-path}/#{$font-name}.eot', normal, normal
+        );
+        @if ($embed-woff) {
+            @include font-face('#{$font-name}',
+                inline-font-files('#{$fira-font-path}/#{$font-name}.woff', woff)
+            );
+        }
+    }
+}

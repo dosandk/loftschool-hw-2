@@ -1,0 +1,18 @@
+AddDefaultCharset utf-8
+
+php_value register_globals 0
+php_value magic_quotes_gpc off
+php_value short_open_tag 1
+
+Options +FollowSymLinks
+#Options -Indexes
+
+#DirectoryIndex main.php
+
+ErrorDocument 404 /views/404.php
+
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %[REQUEST_FILENAME] !^favicon-logo-16x16\.ico
+RewriteRule ^(.*)$ ?view=$1
