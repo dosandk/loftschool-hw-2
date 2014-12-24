@@ -5,18 +5,18 @@
 }
 
 @mixin font-includer($font-names-scope, $font-path, $embed-woff: false) {
-    @each $font-name in $fira-fonts-names {
+    @each $font-name in $font-names-scope {
         @include font-face('#{$font-name}',
             font-files(
-                '#{$fira-font-path}/#{$font-name}.woff', 'woff',
-                '#{$fira-font-path}/#{$font-name}.ttf', 'truetype',
-                '#{$fira-font-path}/#{$font-name}.svg##{$font-name}', 'svg'
+                '#{$font-path}/#{$font-name}.woff', 'woff',
+                '#{$font-path}/#{$font-name}.ttf', 'truetype',
+                '#{$font-path}/#{$font-name}.svg##{$font-name}', 'svg'
             ),
-            '#{$fira-font-path}/#{$font-name}.eot', normal, normal
+            '#{$font-path}/#{$font-name}.eot', normal, normal
         );
         @if ($embed-woff) {
             @include font-face('#{$font-name}',
-                inline-font-files('#{$fira-font-path}/#{$font-name}.woff', woff)
+                inline-font-files('#{$font-path}/#{$font-name}.woff', woff)
             );
         }
     }

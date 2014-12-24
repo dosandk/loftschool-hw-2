@@ -1,15 +1,32 @@
 // default settings
 
 // colors settings
+
 $white: #fff;
 $black: #000;
+$steal-blue: #5c7b98;
+$blue: #00b9fe;
+$grey: #dae1eb;
+$dark: #151515;
+$blue-violet: #613993;
 
+// fonts settings
 
-// font-sizes settings
-$fira-fonts-names: 'firasans-book', 'firasans-medium', 'firasans-light', 'firasans-lightitalic', 'firasans-regular';
-$fira-font-path: 'fira';
+$font-12: 12px;
+$font-14: 14px;
+$font-15: 15px;
+$font-16: 16px;
+$font-17: 17px;
+$font-18: 18px;
+$font-25: 25px;
+$font-28: 28px;
+
+// TODO see sass object variables
+$elektra-fonts-names: 'elektra-light-pro', 'elektra-light-pro-bold', 'elektra-medium-pro', 'elektra-medium-pro-italic';
+$elektra-font-path: 'elektra';
 
 // sprites settings
+$ui-sprite: sprite-map('ui/*.png', $layout: 'horizontal', $spacing: 10px);
 
 // media-queries settings
 
