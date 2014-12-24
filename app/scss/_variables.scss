@@ -12,14 +12,16 @@ $blue-violet: #613993;
 
 // fonts settings
 
-$font-12: 12px;
-$font-14: 14px;
-$font-15: 15px;
-$font-16: 16px;
-$font-17: 17px;
-$font-18: 18px;
-$font-25: 25px;
-$font-28: 28px;
+$font-sizes: (
+    font-size-12: 12px,
+    font-size-14: 14px,
+    font-size-15: 15px,
+    font-size-16: 16px,
+    font-size-17: 17px,
+    font-size-18: 18px,
+    font-size-25: 25px,
+    font-size-28: 28px
+);
 
 // TODO see sass object variables
 $elektra-fonts-names: 'elektra-light-pro', 'elektra-light-pro-bold', 'elektra-medium-pro', 'elektra-medium-pro-italic';
