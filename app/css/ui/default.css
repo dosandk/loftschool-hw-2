@@ -63,6 +63,14 @@ fieldset {
   display: table-cell;
 }
 
+.display-block {
+  display: block;
+}
+
+.display-inline-block {
+  display: inline-block;
+}
+
 .inline-baseline-middle {
   display: inline-block;
   vertical-align: middle;
@@ -133,6 +141,14 @@ html, body {
   position: relative;
 }
 
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
 .cf:before,
 .cf:after {
   content: " ";
@@ -201,14 +217,88 @@ html, body {
   margin-right: 30px;
   float: left;
 }
+.left-side-bar .header-logo-container {
+  height: 82px;
+}
+.left-side-bar .order-form {
+  background: #f4f6f9;
+  padding: 12px;
+  color: #5c7b98;
+  margin-bottom: 15px;
+}
+.left-side-bar .order-form-title {
+  text-align: center;
+  font-family: 'elektra-light-pro-bold';
+  margin-bottom: 20px;
+}
+.left-side-bar .call-order-form-fieldset {
+  margin-bottom: 12px;
+}
+.left-side-bar .call-order-form-label {
+  line-height: 28px;
+}
+.left-side-bar .call-order-form-input,
+.left-side-bar .call-order-form-textarea,
+.left-side-bar .call-order-form-select {
+  border: 1px solid #dae1eb;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.left-side-bar .call-order-form-input {
+  height: 26px;
+  width: 133px;
+  text-indent: 7px;
+}
+.left-side-bar .call-order-form-select-wrap {
+  line-height: 0;
+}
+.left-side-bar .call-order-form-select {
+  width: 51px;
+  height: 26px;
+}
+.left-side-bar .call-order-form-select:not(:first-child) {
+  margin-left: 9px;
+}
+.left-side-bar .call-order-form-select-label {
+  width: 26px;
+  height: 24px;
+  position: absolute;
+  right: 1px;
+  top: 1px;
+  z-index: 1;
+  cursor: pointer;
+  background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAICAYAAAAvOAWIAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA+dpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczpkYz0iaHR0cDovL3B1cmwub3JnL2RjL2VsZW1lbnRzLzEuMS8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M2IChXaW5kb3dzKSIgeG1wOkNyZWF0ZURhdGU9IjIwMTQtMTItMjVUMTA6NTY6MjUrMDI6MDAiIHhtcDpNb2RpZnlEYXRlPSIyMDE0LTEyLTI1VDEwOjU2OjU2KzAyOjAwIiB4bXA6TWV0YWRhdGFEYXRlPSIyMDE0LTEyLTI1VDEwOjU2OjU2KzAyOjAwIiBkYzpmb3JtYXQ9ImltYWdlL3BuZyIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpGQTgxNjlEQThDMTMxMUU0ODREN0E4MUE5NDNGQjRGQiIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpGQTgxNjlEQjhDMTMxMUU0ODREN0E4MUE5NDNGQjRGQiI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZBODE2OUQ4OEMxMzExRTQ4NEQ3QTgxQTk0M0ZCNEZCIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkZBODE2OUQ5OEMxMzExRTQ4NEQ3QTgxQTk0M0ZCNEZCIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+oDaOFwAAAGdJREFUeNpi+P//PwMQuwBxKJSNDZeDaBBD6T8CGGNROBMqtwpZJwjchWpGF38HEkc2YRVU4gyUH4pkowvMGTAsCDUZBHYjKSyHqUF3nzHUShhYhSyPzeehSO4XJKQYFpRK6OIAAQYAE1AiQhZqzxcAAAAASUVORK5CYII=') 50% 50% no-repeat #00b9fe;
+}
+.left-side-bar .call-order-form-textarea {
+  width: 100%;
+  height: 69px;
+  padding: 9px;
+}
+.left-side-bar .order-form-submit-btn,
+.left-side-bar .order-form-reset-btn {
+  width: 90px;
+  height: 35px;
+  color: #fff;
+  padding: 0 5px;
+  font-family: 'elektra-light-pro-bold';
+  cursor: pointer;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.left-side-bar .order-form-submit-btn {
+  background: #00b9fe;
+}
+.left-side-bar .order-form-reset-btn {
+  background: #dae1eb;
+}
 .left-side-bar .gallery-list {
-  outline: 1px solid greenyellow;
   margin-left: -10px;
   margin-bottom: 30px;
   overflow: hidden;
 }
 .left-side-bar .gallery-list-item {
-  outline: 1px solid red;
   display: inline-block;
   float: left;
   margin: 0 0 10px 10px;
@@ -218,7 +308,24 @@ html, body {
   text-align: center;
   color: #5c7b98;
   padding: 15px;
+  line-height: 20px;
   background: #f4f6f9;
+}
+.left-side-bar .contact-phone {
+  text-decoration: none;
+  color: #5c7b98;
+}
+.left-side-bar .contact-phone:visited {
+  color: #5c7b98;
+}
+.left-side-bar .contact-phone:focus {
+  color: #5c7b98;
+}
+.left-side-bar .contact-phone:hover {
+  color: #5c7b98;
+}
+.left-side-bar .contact-phone:active {
+  color: #5c7b98;
 }
 .left-side-bar .location-icon,
 .left-side-bar .phone-icon {
@@ -250,8 +357,9 @@ html, body {
   height: 34px;
   color: #5c7b98;
   top: 50%;
-  margin-top: -17px;
+  margin-top: -46px;
   position: absolute;
+  font-family: 'elektra-light-pro-bold';
 }
 .content .nav-arrow-left:hover,
 .content .nav-arrow-right:hover {
@@ -274,13 +382,16 @@ html, body {
 .content .nav-arrow-right:hover, .content .nav-arrow-right.nav-arrow-right-69x34-hover {
   background-position: -518px 0;
 }
+.content .nav-arrow-txt {
+  display: table-cell;
+  padding: 0 12px;
+}
 .content .img-description-block {
   width: 100%;
-  height: 76px;
   color: #fff;
   background: rgba(0, 0, 0, 0.55);
   position: absolute;
-  padding: 10px 24px;
+  padding: 16px 24px;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
@@ -295,7 +406,6 @@ html, body {
   line-height: 23px;
 }
 .content .main-gallery-list {
-  outline: 1px solid red;
   margin-left: -25px;
 }
 .content .main-gallery-list-item {
@@ -331,7 +441,6 @@ html, body {
   background: #5c7b98;
 }
 .content .product-view-table {
-  outline: 1px solid red;
   height: 120px;
 }
 .content .product-view-img {
@@ -351,7 +460,6 @@ html, body {
   color: #fff;
 }
 .footer .footer-inner-wrap {
-  outline: 1px solid blue;
   width: 1000px;
   margin: 0 auto;
 }
@@ -359,7 +467,6 @@ html, body {
   width: 480px;
 }
 .footer .footer-navigation-list-item {
-  outline: 1px solid red;
   width: 160px;
   line-height: 25px;
   color: #fff;
@@ -385,10 +492,14 @@ html, body {
 .footer .footer-navigation-list-item-link:active {
   color: #fff;
 }
-.footer .social-icon {
-  display: inline-block;
-  background-image: url('../../img/spritesheets/ui.png');
-  background-repeat: no-repeat;
+.footer .store-wrapper {
+  margin-bottom: 24px;
+}
+.footer .social-links-block {
+  margin-left: 20px;
+}
+.footer .social-icon:not(:first-child) {
+  margin-left: 8px;
 }
 .footer .vk-social-icon {
   background-position: -678px 0;

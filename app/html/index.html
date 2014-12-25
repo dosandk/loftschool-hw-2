@@ -10,22 +10,46 @@
     <div class="main-wrapper">
       <div class="container cf">
         <aside class="left-side-bar">
-          <div><img src="../img/separated/logo-199x57.png" alt="logo" class="vertical-align-middle"></div>
+          <div class="header-logo-container"><img src="../img/separated/logo-199x57.png" alt="logo" class="vertical-align-middle"></div>
           <article class="order-form">
-            <div>Заказать звонок</div>
+            <div class="order-form-title font-size-25">Заказать звонок</div>
             <form id="call-order-form">
-              <div>
-                <label for="user-name"></label>
-                <input id="user-name" name="userName" type="text">
+              <div class="call-order-form-fieldset">
+                <label for="user-name" class="call-order-form-label font-size-14">Ваше имя</label>
+                <input id="user-name" name="userName" type="text" placeholder="Ваше имя" class="call-order-form-input right font-size-12">
               </div>
-              <div>
-                <label for="user-phone-number"></label>
-                <input id="user-phone-number" name="userPhoneNumber" type="text">
+              <div class="call-order-form-fieldset">
+                <label for="user-phone-number" class="call-order-form-label font-size-14">Телефон</label>
+                <input id="user-phone-number" name="userPhoneNumber" type="text" placeholder="+7 (912) 000-00-00" class="call-order-form-input right font-size-12">
               </div>
-              <input>
-              <textarea></textarea>
-              <input type="submit" value="Отправить">
-              <input type="reset" value="Очистить">
+              <div class="call-order-form-fieldset display-table parent-width">
+                <div class="display-table-cell vertical-align-middle">
+                  <label class="font-size-14">Дата звонка</label>
+                </div>
+                <div class="display-table-cell vertical-align-middle to-right-inline call-order-form-select-wrap">
+                  <div class="display-inline-block relative">
+                    <select id="day-of-call" class="call-order-form-select font-size-12 right">
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                    </select>
+                    <label for="day-of-call" class="inline-icon call-order-form-select-label"></label>
+                  </div>
+                  <div class="display-inline-block relative">
+                    <select id="month-of-call" class="call-order-form-select font-size-12 right">
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                    </select>
+                    <label for="month-of-call" class="inline-icon call-order-form-select-label"></label>
+                  </div>
+                </div>
+              </div>
+              <div class="call-order-form-fieldset">
+                <textarea id="user-message" name="userMessage" placeholder="Комментарий" class="call-order-form-textarea font-size-12"></textarea>
+              </div>
+              <input type="submit" value="Отправить" class="order-form-submit-btn">
+              <input type="reset" value="Очистить" class="order-form-reset-btn right">
             </form>
           </article>
           <article class="gallery">
@@ -41,16 +65,21 @@
               <li class="gallery-list-item"><img src="../img/separated/gallery-icon[0]-70x70.png" alt="gallery-item" class="vertical-align-middle"></li>
             </ul>
           </article>
-          <article class="contacts display-table-cell vertical-align-middle">
-            <div><span class="inline-icon vertical-align-middle location-icon"></span><span class="location-txt">г. Москва, ул. Новая 246, офис 214.</span></div>
-            <div><span class="inline-icon vertical-align-middle phone-icon"></span><span class="location-txt">+7(921) 322-12-32</span></div>
+          <article class="display-table-cell vertical-align-middle contacts font-size-14">
+            <div><span class="inline-icon vertical-align-middle location-icon"></span><span>г. Москва, ул. Новая 246, офис 214.</span></div>
+            <div><span class="inline-icon vertical-align-middle phone-icon"></span><span><a href="tel:+79213221232" class="contact-phone">
+                  <script type="text/javascript">document.write('+7(921) 322-12-32')</script></a></span></div>
           </article>
         </aside>
         <section class="content">
           <div class="carousel-container relative">
             <div class="img-container"><img src="../img/separated/carousel-740x300.jpg" class="vertical-align-middle"></div>
-            <div class="inline-icon nav-arrow-left">Пред.</div>
-            <div class="inline-icon nav-arrow-right">След.</div>
+            <div class="inline-icon nav-arrow-left font-size-17">
+              <div class="display-table parent-size to-center-inline"><span class="display-table-cell vertical-align-middle nav-arrow-txt">Пред.</span></div>
+            </div>
+            <div class="inline-icon nav-arrow-right font-size-17">
+              <div class="display-table parent-size to-center-inline"><span class="display-table-cell vertical-align-middle nav-arrow-txt">След.</span></div>
+            </div>
             <div class="img-description-block">
               <div class="img-description-block-title font-size-18">iMac за пол цены</div>
               <div class="img-description-block-txt font-size-14">Принеси свой старый Mac и получи скидку на новый!</div>
@@ -62,124 +91,12 @@
                 <div class="display-table-cell vertical-align-middle">
                   <div class="header-line"></div>
                 </div>
-                <div class="display-table-cell vertical-align-middle gallery-category-title font-size-25">Популярные товары</div>
+                <h2 class="display-table-cell vertical-align-middle gallery-category-title font-size-25">Популярные товары</h2>
                 <div class="display-table-cell vertical-align-middle">
                   <div class="header-line"></div>
                 </div>
               </header>
               <ul class="main-gallery-list cf">
-                <li class="main-gallery-list-item">
-                  <div class="display-table parent-width fixed-table-layout product-view-table">
-                    <div class="display-table-cell vertical-align-middle product-view-img"><img src="../img/separated/product-[6].jpg"></div>
-                    <div class="display-table-cell vertical-align-middle product-view-description font-size-15"><a href="#">Apple Thunderb Display 27''</a></div>
-                  </div>
-                  <table class="product-description-table parent-width fixed-table-layout font-size-14">
-                    <tr>
-                      <td class="parent-half-width">Артикул</td>
-                      <td class="parent-half-width">42787825</td>
-                    </tr>
-                    <tr>
-                      <td class="parent-half-width">Опция</td>
-                      <td class="parent-half-width">включена</td>
-                    </tr>
-                    <tr>
-                      <td class="parent-half-width">Цвет</td>
-                      <td class="parent-half-width">серебристый</td>
-                    </tr>
-                    <tr>
-                      <td class="parent-half-width">Размер</td>
-                      <td class="parent-half-width">1280*1245*90</td>
-                    </tr>
-                    <tr>
-                      <td class="parent-half-width">Вес</td>
-                      <td class="parent-half-width">9 кг</td>
-                    </tr>
-                  </table>
-                </li>
-                <li class="main-gallery-list-item">
-                  <div class="display-table parent-width fixed-table-layout product-view-table">
-                    <div class="display-table-cell vertical-align-middle product-view-img"><img src="../img/separated/product-[5].jpg"></div>
-                    <div class="display-table-cell vertical-align-middle product-view-description font-size-15"><a href="#">Apple Thunderb Display 27''</a></div>
-                  </div>
-                  <table class="product-description-table parent-width fixed-table-layout font-size-14">
-                    <tr>
-                      <td class="parent-half-width">Артикул</td>
-                      <td class="parent-half-width">42787825</td>
-                    </tr>
-                    <tr>
-                      <td class="parent-half-width">Опция</td>
-                      <td class="parent-half-width">включена</td>
-                    </tr>
-                    <tr>
-                      <td class="parent-half-width">Цвет</td>
-                      <td class="parent-half-width">серебристый</td>
-                    </tr>
-                    <tr>
-                      <td class="parent-half-width">Размер</td>
-                      <td class="parent-half-width">1280*1245*90</td>
-                    </tr>
-                    <tr>
-                      <td class="parent-half-width">Вес</td>
-                      <td class="parent-half-width">9 кг</td>
-                    </tr>
-                  </table>
-                </li>
-                <li class="main-gallery-list-item">
-                  <div class="display-table parent-width fixed-table-layout product-view-table">
-                    <div class="display-table-cell vertical-align-middle product-view-img"><img src="../img/separated/product-[4].jpg"></div>
-                    <div class="display-table-cell vertical-align-middle product-view-description font-size-15"><a href="#">Apple Thunderb Display 27''</a></div>
-                  </div>
-                  <table class="product-description-table parent-width fixed-table-layout font-size-14">
-                    <tr>
-                      <td class="parent-half-width">Артикул</td>
-                      <td class="parent-half-width">42787825</td>
-                    </tr>
-                    <tr>
-                      <td class="parent-half-width">Опция</td>
-                      <td class="parent-half-width">включена</td>
-                    </tr>
-                    <tr>
-                      <td class="parent-half-width">Цвет</td>
-                      <td class="parent-half-width">серебристый</td>
-                    </tr>
-                    <tr>
-                      <td class="parent-half-width">Размер</td>
-                      <td class="parent-half-width">1280*1245*90</td>
-                    </tr>
-                    <tr>
-                      <td class="parent-half-width">Вес</td>
-                      <td class="parent-half-width">9 кг</td>
-                    </tr>
-                  </table>
-                </li>
-                <li class="main-gallery-list-item">
-                  <div class="display-table parent-width fixed-table-layout product-view-table">
-                    <div class="display-table-cell vertical-align-middle product-view-img"><img src="../img/separated/product-[3].jpg"></div>
-                    <div class="display-table-cell vertical-align-middle product-view-description font-size-15"><a href="#">Apple Thunderb Display 27''</a></div>
-                  </div>
-                  <table class="product-description-table parent-width fixed-table-layout font-size-14">
-                    <tr>
-                      <td class="parent-half-width">Артикул</td>
-                      <td class="parent-half-width">42787825</td>
-                    </tr>
-                    <tr>
-                      <td class="parent-half-width">Опция</td>
-                      <td class="parent-half-width">включена</td>
-                    </tr>
-                    <tr>
-                      <td class="parent-half-width">Цвет</td>
-                      <td class="parent-half-width">серебристый</td>
-                    </tr>
-                    <tr>
-                      <td class="parent-half-width">Размер</td>
-                      <td class="parent-half-width">1280*1245*90</td>
-                    </tr>
-                    <tr>
-                      <td class="parent-half-width">Вес</td>
-                      <td class="parent-half-width">9 кг</td>
-                    </tr>
-                  </table>
-                </li>
                 <li class="main-gallery-list-item">
                   <div class="display-table parent-width fixed-table-layout product-view-table">
                     <div class="display-table-cell vertical-align-middle product-view-img"><img src="../img/separated/product-[2].jpg"></div>
@@ -267,215 +184,97 @@
               </ul>
             </article>
             <article>
-              <header class="font-size-25"><span>Популярные товары</span></header>
+              <header class="main-gallery-header display-table parent-width fixed-table-layout">
+                <div class="display-table-cell vertical-align-middle">
+                  <div class="header-line"></div>
+                </div>
+                <h2 class="display-table-cell vertical-align-middle gallery-category-title font-size-25">Товары со скидкой</h2>
+                <div class="display-table-cell vertical-align-middle">
+                  <div class="header-line"></div>
+                </div>
+              </header>
               <ul class="main-gallery-list cf">
                 <li class="main-gallery-list-item">
-                  <table class="product-view-table">
+                  <div class="display-table parent-width fixed-table-layout product-view-table">
+                    <div class="display-table-cell vertical-align-middle product-view-img"><img src="../img/separated/product-[5].jpg"></div>
+                    <div class="display-table-cell vertical-align-middle product-view-description font-size-15"><a href="#">Apple Thunderb Display 27''</a></div>
+                  </div>
+                  <table class="product-description-table parent-width fixed-table-layout font-size-14">
                     <tr>
-                      <td><img src="../img/separated/product-[6].jpg"></td>
-                      <td>Apple Thunderb Display 27''</td>
-                    </tr>
-                  </table>
-                  <table class="product-description-table">
-                    <tr>
-                      <td>Артикул</td>
-                      <td>42787825</td>
+                      <td class="parent-half-width">Артикул</td>
+                      <td class="parent-half-width">42787825</td>
                     </tr>
                     <tr>
-                      <td>Опция</td>
-                      <td>включена</td>
+                      <td class="parent-half-width">Опция</td>
+                      <td class="parent-half-width">включена</td>
                     </tr>
                     <tr>
-                      <td>Цвет</td>
-                      <td>серебристый</td>
+                      <td class="parent-half-width">Цвет</td>
+                      <td class="parent-half-width">серебристый</td>
                     </tr>
                     <tr>
-                      <td>Размер</td>
-                      <td>1280*1245*90</td>
+                      <td class="parent-half-width">Размер</td>
+                      <td class="parent-half-width">1280*1245*90</td>
                     </tr>
                     <tr>
-                      <td>Вес</td>
-                      <td>9 кг</td>
-                    </tr>
-                  </table>
-                </li>
-                <li class="main-gallery-list-item">
-                  <table class="product-view-table">
-                    <tr>
-                      <td><img src="../img/separated/product-[5].jpg"></td>
-                      <td>Apple Thunderb Display 27''</td>
-                    </tr>
-                  </table>
-                  <table class="product-description-table">
-                    <tr>
-                      <td>Артикул</td>
-                      <td>42787825</td>
-                    </tr>
-                    <tr>
-                      <td>Опция</td>
-                      <td>включена</td>
-                    </tr>
-                    <tr>
-                      <td>Цвет</td>
-                      <td>серебристый</td>
-                    </tr>
-                    <tr>
-                      <td>Размер</td>
-                      <td>1280*1245*90</td>
-                    </tr>
-                    <tr>
-                      <td>Вес</td>
-                      <td>9 кг</td>
+                      <td class="parent-half-width">Вес</td>
+                      <td class="parent-half-width">9 кг</td>
                     </tr>
                   </table>
                 </li>
                 <li class="main-gallery-list-item">
-                  <table class="product-view-table">
+                  <div class="display-table parent-width fixed-table-layout product-view-table">
+                    <div class="display-table-cell vertical-align-middle product-view-img"><img src="../img/separated/product-[4].jpg"></div>
+                    <div class="display-table-cell vertical-align-middle product-view-description font-size-15"><a href="#">Apple Thunderb Display 27''</a></div>
+                  </div>
+                  <table class="product-description-table parent-width fixed-table-layout font-size-14">
                     <tr>
-                      <td><img src="../img/separated/product-[4].jpg"></td>
-                      <td>Apple Thunderb Display 27''</td>
-                    </tr>
-                  </table>
-                  <table class="product-description-table">
-                    <tr>
-                      <td>Артикул</td>
-                      <td>42787825</td>
+                      <td class="parent-half-width">Артикул</td>
+                      <td class="parent-half-width">42787825</td>
                     </tr>
                     <tr>
-                      <td>Опция</td>
-                      <td>включена</td>
+                      <td class="parent-half-width">Опция</td>
+                      <td class="parent-half-width">включена</td>
                     </tr>
                     <tr>
-                      <td>Цвет</td>
-                      <td>серебристый</td>
+                      <td class="parent-half-width">Цвет</td>
+                      <td class="parent-half-width">серебристый</td>
                     </tr>
                     <tr>
-                      <td>Размер</td>
-                      <td>1280*1245*90</td>
+                      <td class="parent-half-width">Размер</td>
+                      <td class="parent-half-width">1280*1245*90</td>
                     </tr>
                     <tr>
-                      <td>Вес</td>
-                      <td>9 кг</td>
-                    </tr>
-                  </table>
-                </li>
-                <li class="main-gallery-list-item">
-                  <table class="product-view-table">
-                    <tr>
-                      <td><img src="../img/separated/product-[3].jpg"></td>
-                      <td>Apple Thunderb Display 27''</td>
-                    </tr>
-                  </table>
-                  <table class="product-description-table">
-                    <tr>
-                      <td>Артикул</td>
-                      <td>42787825</td>
-                    </tr>
-                    <tr>
-                      <td>Опция</td>
-                      <td>включена</td>
-                    </tr>
-                    <tr>
-                      <td>Цвет</td>
-                      <td>серебристый</td>
-                    </tr>
-                    <tr>
-                      <td>Размер</td>
-                      <td>1280*1245*90</td>
-                    </tr>
-                    <tr>
-                      <td>Вес</td>
-                      <td>9 кг</td>
+                      <td class="parent-half-width">Вес</td>
+                      <td class="parent-half-width">9 кг</td>
                     </tr>
                   </table>
                 </li>
                 <li class="main-gallery-list-item">
-                  <table class="product-view-table">
+                  <div class="display-table parent-width fixed-table-layout product-view-table">
+                    <div class="display-table-cell vertical-align-middle product-view-img"><img src="../img/separated/product-[3].jpg"></div>
+                    <div class="display-table-cell vertical-align-middle product-view-description font-size-15"><a href="#">Apple Thunderb Display 27''</a></div>
+                  </div>
+                  <table class="product-description-table parent-width fixed-table-layout font-size-14">
                     <tr>
-                      <td><img src="../img/separated/product-[2].jpg"></td>
-                      <td>Apple Thunderb Display 27''</td>
-                    </tr>
-                  </table>
-                  <table class="product-description-table">
-                    <tr>
-                      <td>Артикул</td>
-                      <td>42787825</td>
+                      <td class="parent-half-width">Артикул</td>
+                      <td class="parent-half-width">42787825</td>
                     </tr>
                     <tr>
-                      <td>Опция</td>
-                      <td>включена</td>
+                      <td class="parent-half-width">Опция</td>
+                      <td class="parent-half-width">включена</td>
                     </tr>
                     <tr>
-                      <td>Цвет</td>
-                      <td>серебристый</td>
+                      <td class="parent-half-width">Цвет</td>
+                      <td class="parent-half-width">серебристый</td>
                     </tr>
                     <tr>
-                      <td>Размер</td>
-                      <td>1280*1245*90</td>
+                      <td class="parent-half-width">Размер</td>
+                      <td class="parent-half-width">1280*1245*90</td>
                     </tr>
                     <tr>
-                      <td>Вес</td>
-                      <td>9 кг</td>
-                    </tr>
-                  </table>
-                </li>
-                <li class="main-gallery-list-item">
-                  <table class="product-view-table">
-                    <tr>
-                      <td><img src="../img/separated/product-[1].jpg"></td>
-                      <td>Apple Thunderb Display 27''</td>
-                    </tr>
-                  </table>
-                  <table class="product-description-table">
-                    <tr>
-                      <td>Артикул</td>
-                      <td>42787825</td>
-                    </tr>
-                    <tr>
-                      <td>Опция</td>
-                      <td>включена</td>
-                    </tr>
-                    <tr>
-                      <td>Цвет</td>
-                      <td>серебристый</td>
-                    </tr>
-                    <tr>
-                      <td>Размер</td>
-                      <td>1280*1245*90</td>
-                    </tr>
-                    <tr>
-                      <td>Вес</td>
-                      <td>9 кг</td>
-                    </tr>
-                  </table>
-                </li>
-                <li class="main-gallery-list-item">
-                  <table class="product-view-table">
-                    <tr>
-                      <td><img src="../img/separated/product-[0].jpg"></td>
-                      <td>Apple Thunderb Display 27''</td>
-                    </tr>
-                  </table>
-                  <table class="product-description-table">
-                    <tr>
-                      <td>Артикул</td>
-                      <td>42787825</td>
-                    </tr>
-                    <tr>
-                      <td>Опция</td>
-                      <td>включена</td>
-                    </tr>
-                    <tr>
-                      <td>Цвет</td>
-                      <td>серебристый</td>
-                    </tr>
-                    <tr>
-                      <td>Размер</td>
-                      <td>1280*1245*90</td>
-                    </tr>
-                    <tr>
-                      <td>Вес</td>
-                      <td>9 кг</td>
+                      <td class="parent-half-width">Вес</td>
+                      <td class="parent-half-width">9 кг</td>
                     </tr>
                   </table>
                 </li>
@@ -489,7 +288,7 @@
           <div class="display-table-cell vertical-align-middle"><img src="../img/separated/logo-footer-139x39.png"></div>
           <div class="display-table-cell vertical-align-middle footer-navigation-list font-size-15">
             <div class="footer-navigation-list-item">
-              <div class="footer-navigation-list-item-title">О магазине</div>
+              <h3 class="footer-navigation-list-item-title">О магазине</h3>
               <ul>
                 <li><a href="#" class="footer-navigation-list-item-link">О нас</a></li>
                 <li><a href="#" class="footer-navigation-list-item-link">Наши цены</a></li>
@@ -498,7 +297,7 @@
               </ul>
             </div>
             <div class="footer-navigation-list-item">
-              <div class="footer-navigation-list-item-title">Каталог</div>
+              <h3 class="footer-navigation-list-item-title">Каталог</h3>
               <ul>
                 <li><a href="#" class="footer-navigation-list-item-link">Смартфоны</a></li>
                 <li><a href="#" class="footer-navigation-list-item-link">Планшеты</a></li>
@@ -507,7 +306,7 @@
               </ul>
             </div>
             <div class="footer-navigation-list-item">
-              <div class="footer-navigation-list-item-title">Контакты</div>
+              <h3 class="footer-navigation-list-item-title">Контакты</h3>
               <ul>
                 <li><a href="#" class="footer-navigation-list-item-link">Телефоны</a></li>
                 <li><a href="#" class="footer-navigation-list-item-link">Адреса</a></li>
@@ -516,9 +315,16 @@
               </ul>
             </div>
           </div>
-          <div class="display-table-cell vertical-align-middle social-links-block">
-            <div class="to-right-inline"><span class="inline-icon app-store-icon"></span><span class="inline-icon google-play-icon"></span></div>
-            <div class="to-center-inline"><span class="inline-icon vk-social-icon"></span><span class="inline-icon fb-social-icon"></span><span class="inline-icon tw-social-icon"></span></div>
+          <div class="display-table-cell vertical-align-middle">
+            <ul class="store-wrapper to-right-inline">
+              <li class="inline-icon app-store-icon"><a href="http://store.apple.com" class="display-block parent-size"><span class="hide">http://store.apple.com</span></a></li>
+              <li class="inline-icon google-play-icon"><a href="https://play.google.com" class="display-block parent-size"><span class="hide">https://play.google.com</span></a></li>
+            </ul>
+            <ul class="to-center-inline social-links-block">
+              <li class="inline-icon social-icon vk-social-icon"><a href="https://vk.com" class="display-block parent-size"><span class="hide">https://vk.com</span></a></li>
+              <li class="inline-icon social-icon fb-social-icon"><a href="https://facebook.com" class="display-blockcf parent-size"><span class="hide">https://facebook.com</span></a></li>
+              <li class="inline-icon social-icon tw-social-icon"><a href="https://twitter.com" class="display-block parent-size"><span class="hide">https://twitter.com</span></a></li>
+            </ul>
           </div>
         </div>
       </footer>

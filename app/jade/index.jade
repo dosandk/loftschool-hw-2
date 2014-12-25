@@ -1,7 +1,7 @@
 doctype html
 - var smallGalleryItem = 9
-- var productGalleryItem1 = 7
-- var productGalleryItem2 = 7
+- var productGalleryItem1 = 3
+- var productGalleryItem2 = 6
 - var galleryImgs = ['product-[1]-85x61', 'product-[2]-58x86', 'product-[3]-73x67', 'product-[4]-67x68']
 html(lang="en")
     head
@@ -15,40 +15,59 @@ html(lang="en")
 
             div.container.cf
                 aside.left-side-bar
-                    div
+                    div.header-logo-container
                         img.vertical-align-middle(src='../img/separated/logo-199x57.png', alt='logo')
                     article.order-form
-                        div Заказать звонок
-                        form#call-order-form
-                            div
-                                label(for='user-name')
-                                input(id='user-name', name='userName' type='text', )
-                            div
-                                label(for='user-phone-number')
-                                input(id='user-phone-number', name='userPhoneNumber', type='text')
-                            input
-                            textarea
-                            input(type='submit', value='Отправить')
-                            input(type='reset', value='Очистить')
+                        div.order-form-title.font-size-25 Заказать звонок
+                        form(id='call-order-form')
+                            div.call-order-form-fieldset
+                                label.call-order-form-label.font-size-14(for='user-name') Ваше имя
+                                input.call-order-form-input.right.font-size-12(id='user-name', name='userName' type='text', placeholder='Ваше имя')
+                            div.call-order-form-fieldset
+                                label.call-order-form-label.font-size-14(for='user-phone-number') Телефон
+                                input.call-order-form-input.right.font-size-12(id='user-phone-number', name='userPhoneNumber', type='text', placeholder='+7 (912) 000-00-00')
+                            div.call-order-form-fieldset.display-table.parent-width
+                                div.display-table-cell.vertical-align-middle
+                                    label.font-size-14 Дата звонка
+                                div.display-table-cell.vertical-align-middle.to-right-inline.call-order-form-select-wrap
+                                    div.display-inline-block.relative
+                                        select.call-order-form-select.font-size-12.right(id='day-of-call')
+                                            option(value='1') 1
+                                            option(value='2') 2
+                                            option(value='3') 3
+                                        label.inline-icon.call-order-form-select-label(for='day-of-call')
+                                    div.display-inline-block.relative
+                                        select.call-order-form-select.font-size-12.right(id='month-of-call')
+                                            option(value='1') 1
+                                            option(value='2') 2
+                                            option(value='3') 3
+                                        label.inline-icon.call-order-form-select-label(for='month-of-call')
+                            div.call-order-form-fieldset
+                                textarea.call-order-form-textarea.font-size-12(id='user-message', name='userMessage', placeholder='Комментарий')
+                            input.order-form-submit-btn(type='submit', value='Отправить')
+                            input.order-form-reset-btn.right(type='reset', value='Очистить')
                     article.gallery
                         ul.gallery-list
                             while smallGalleryItem-- > 0
                                 li.gallery-list-item
                                     img.vertical-align-middle(src='../img/separated/gallery-icon[#{smallGalleryItem}]-70x70.png', alt='gallery-item')
-                    article.contacts.display-table-cell.vertical-align-middle
+                    article.display-table-cell.vertical-align-middle.contacts.font-size-14
                         div
                             span.inline-icon.vertical-align-middle.location-icon
-                            span.location-txt г. Москва, ул. Новая 246, офис 214.
+                            span г. Москва, ул. Новая 246, офис 214.
                         div
                             span.inline-icon.vertical-align-middle.phone-icon
-                            span.location-txt +7(921) 322-12-32
+                            span
+                                a.contact-phone(href='tel:+79213221232'): script(type='text/javascript') document.write('+7(921) 322-12-32')
 
                 section.content
                     div.carousel-container.relative
                         div.img-container
                             img.vertical-align-middle(src="../img/separated/carousel-740x300.jpg")
-                        div.inline-icon.nav-arrow-left Пред.
-                        div.inline-icon.nav-arrow-right След.
+                        div.inline-icon.nav-arrow-left.font-size-17
+                            div.display-table.parent-size.to-center-inline: span.display-table-cell.vertical-align-middle.nav-arrow-txt Пред.
+                        div.inline-icon.nav-arrow-right.font-size-17
+                            div.display-table.parent-size.to-center-inline: span.display-table-cell.vertical-align-middle.nav-arrow-txt След.
                         div.img-description-block
                             div.img-description-block-title.font-size-18 iMac за пол цены
                             div.img-description-block-txt.font-size-14 Принеси свой старый Mac и получи скидку на новый!
@@ -57,7 +76,7 @@ html(lang="en")
                             header.main-gallery-header.display-table.parent-width.fixed-table-layout
                                 div.display-table-cell.vertical-align-middle
                                     div.header-line
-                                div.display-table-cell.vertical-align-middle.gallery-category-title.font-size-25 Популярные товары
+                                h2.display-table-cell.vertical-align-middle.gallery-category-title.font-size-25 Популярные товары
                                 div.display-table-cell.vertical-align-middle
                                     div.header-line
                             ul.main-gallery-list.cf
@@ -85,30 +104,36 @@ html(lang="en")
                                                 td.parent-half-width Вес
                                                 td.parent-half-width 9 кг
                         article
-                            header.font-size-25: span Популярные товары
+                            header.main-gallery-header.display-table.parent-width.fixed-table-layout
+                                div.display-table-cell.vertical-align-middle
+                                    div.header-line
+                                h2.display-table-cell.vertical-align-middle.gallery-category-title.font-size-25 Товары со скидкой
+                                div.display-table-cell.vertical-align-middle
+                                    div.header-line
                             ul.main-gallery-list.cf
-                                while productGalleryItem2-- > 0
+                                while productGalleryItem2-- > 3
                                     li.main-gallery-list-item
-                                        table.product-view-table
+                                        div.display-table.parent-width.fixed-table-layout.product-view-table
+                                            div.display-table-cell.vertical-align-middle.product-view-img
+                                                img(src='../img/separated/product-[#{productGalleryItem2}].jpg')
+                                            div.display-table-cell.vertical-align-middle.product-view-description.font-size-15
+                                                a(href='#') Apple Thunderb Display 27''
+                                        table.product-description-table.parent-width.fixed-table-layout.font-size-14
                                             tr
-                                                td: img(src='../img/separated/product-[#{productGalleryItem2}].jpg')
-                                                td Apple Thunderb Display 27''
-                                        table.product-description-table
+                                                td.parent-half-width Артикул
+                                                td.parent-half-width 42787825
                                             tr
-                                                td Артикул
-                                                td 42787825
+                                                td.parent-half-width Опция
+                                                td.parent-half-width включена
                                             tr
-                                                td Опция
-                                                td включена
+                                                td.parent-half-width Цвет
+                                                td.parent-half-width серебристый
                                             tr
-                                                td Цвет
-                                                td серебристый
+                                                td.parent-half-width Размер
+                                                td.parent-half-width 1280*1245*90
                                             tr
-                                                td Размер
-                                                td 1280*1245*90
-                                            tr
-                                                td Вес
-                                                td 9 кг
+                                                td.parent-half-width Вес
+                                                td.parent-half-width 9 кг
 
             footer.footer
                 div.display-table.parent-size.fixed-table-layout.footer-inner-wrap
@@ -116,31 +141,33 @@ html(lang="en")
                         img(src='../img/separated/logo-footer-139x39.png')
                     div.display-table-cell.vertical-align-middle.footer-navigation-list.font-size-15
                             div.footer-navigation-list-item
-                                div.footer-navigation-list-item-title О магазине
+                                h3.footer-navigation-list-item-title О магазине
                                 ul
                                     li: a.footer-navigation-list-item-link(href="#") О нас
                                     li: a.footer-navigation-list-item-link(href="#") Наши цены
                                     li: a.footer-navigation-list-item-link(href="#") Наши скидки
                                     li: a.footer-navigation-list-item-link(href="#") Акции
                             div.footer-navigation-list-item
-                                div.footer-navigation-list-item-title Каталог
+                                h3.footer-navigation-list-item-title Каталог
                                 ul
                                     li: a.footer-navigation-list-item-link(href="#") Смартфоны
                                     li: a.footer-navigation-list-item-link(href="#") Планшеты
                                     li: a.footer-navigation-list-item-link(href="#") Компьютеры
                                     li: a.footer-navigation-list-item-link(href="#") Аксессуары
                             div.footer-navigation-list-item
-                                div.footer-navigation-list-item-title Контакты
+                                h3.footer-navigation-list-item-title Контакты
                                 ul
                                     li: a.footer-navigation-list-item-link(href="#") Телефоны
                                     li: a.footer-navigation-list-item-link(href="#") Адреса
                                     li: a.footer-navigation-list-item-link(href="#") Карта проезда
                                     li: a.footer-navigation-list-item-link(href="#") Обратная связь
-                    div.display-table-cell.vertical-align-middle.social-links-block
-                        div.to-right-inline
-                            span.inline-icon.app-store-icon
-                            span.inline-icon.google-play-icon
-                        div.to-center-inline
-                            span.inline-icon.vk-social-icon
-                            span.inline-icon.fb-social-icon
-                            span.inline-icon.tw-social-icon
+                    div.display-table-cell.vertical-align-middle
+                        ul.store-wrapper.to-right-inline
+                            li.inline-icon.app-store-icon
+                                a.display-block.parent-size(href="http://store.apple.com"): span.hide http://store.apple.com
+                            li.inline-icon.google-play-icon
+                                a.display-block.parent-size(href="https://play.google.com"): span.hide https://play.google.com
+                        ul.to-center-inline.social-links-block
+                            li.inline-icon.social-icon.vk-social-icon: a.display-block.parent-size(href="https://vk.com"): span.hide https://vk.com
+                            li.inline-icon.social-icon.fb-social-icon: a.display-blockcf.parent-size(href="https://facebook.com"): span.hide https://facebook.com
+                            li.inline-icon.social-icon.tw-social-icon: a.display-block.parent-size(href="https://twitter.com"): span.hide https://twitter.com

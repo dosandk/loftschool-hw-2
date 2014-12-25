@@ -13,6 +13,12 @@ html, body {
 .relative {
     position: relative;
 }
+.left {
+    float: left;
+}
+.right {
+    float: right;
+}
 
 .cf:before,
 .cf:after {
@@ -56,14 +62,87 @@ html, body {
     margin-right: 30px;
     float: left;
 
+    .header-logo-container {
+        height: 82px;
+    }
+
+    .order-form {
+        background: #f4f6f9;
+        padding: 12px;
+        color: $steal-blue;
+        margin-bottom: 15px;
+    }
+    .order-form-title {
+        text-align: center;
+        font-family: 'elektra-light-pro-bold';
+        margin-bottom: 20px;
+    }
+    .call-order-form-fieldset {
+        margin-bottom: 12px;
+    }
+    .call-order-form-label {
+        line-height: 28px;
+    }
+    .call-order-form-input,
+    .call-order-form-textarea,
+    .call-order-form-select {
+        border: 1px solid $grey;
+        @include box-sizing(border-box);
+    }
+    .call-order-form-input {
+        height: 26px;
+        width: 133px;
+        text-indent: 7px;
+    }
+    .call-order-form-select-wrap {
+        line-height: 0;
+    }
+    .call-order-form-select {
+        width: 51px;
+        height: 26px;
+        &:not(:first-child) {
+            margin-left: 9px;
+        }
+    }
+    .call-order-form-select-label {
+        width: 26px;
+        height: 24px;
+        position: absolute;
+        right: 1px;
+        top: 1px;
+        z-index: 1;
+        cursor: pointer;
+        background:  inline-image('separated/select-dropdown-btn-11x8.png') 50% 50% no-repeat $blue;
+    }
+
+    .call-order-form-textarea {
+        width: 100%;
+        height: 69px;
+        padding: 9px;
+    }
+    .order-form-submit-btn,
+    .order-form-reset-btn {
+        width: 90px;
+        height: 35px;
+        color: $white;
+        padding: 0 5px;
+        font-family: 'elektra-light-pro-bold';
+        cursor: pointer;
+        @include box-sizing(border-box);
+    }
+    .order-form-submit-btn {
+        background: $blue;
+    }
+    .order-form-reset-btn {
+        background: $grey;
+    }
+
     .gallery-list {
-            outline: 1px solid greenyellow;
         margin-left: -10px;
         margin-bottom: 30px;
         overflow: hidden;
     }
     .gallery-list-item {
-            outline: 1px solid red;
         display: inline-block;
         float: left;
         margin: 0 0 10px 10px;
@@ -74,7 +153,12 @@ html, body {
         text-align: center;
         color: $steal-blue;
         padding: 15px;
+        line-height: 20px;
         background: #f4f6f9;
+    }
+    .contact-phone {
+        text-decoration: none;
+        @include link-colors($steal-blue, $steal-blue, $steal-blue, $steal-blue, $steal-blue);
     }
     .location-icon,
     .phone-icon {
@@ -104,8 +188,9 @@ html, body {
         height: 34px;
         color: $steal-blue;
         top: 50%;
-        margin-top: -17px;
+        margin-top: -46px;
         position: absolute;
+        font-family: 'elektra-light-pro-bold';
         &:hover {
             cursor: pointer;
             color: $white;
@@ -121,13 +206,16 @@ html, body {
         margin-right: 10px;
         @include sprite($ui-sprite, 'nav-arrow-right-69x34');
     }
+    .nav-arrow-txt {
+        display: table-cell;
+        padding: 0 12px;
+    }
     .img-description-block {
         width: 100%;
-        height: 76px;
         color: $white;
         background: rgba(0,0,0, .55);
         position: absolute;
-        padding: 10px 24px;
+        padding: 16px 24px;
         @include box-sizing(border-box);
         bottom: 0;
     }
@@ -141,11 +229,9 @@ html, body {
     }
 
     .main-gallery-list {
-            outline: 1px solid red;
         margin-left: -25px;
     }
     .main-gallery-list-item {
-//            outline: 1px solid blueviolet;
         min-height: 234px;
         padding: 10px;
         margin-left: 25px;
@@ -176,7 +262,6 @@ html, body {
     }
 
     .product-view-table {
-            outline: 1px solid red;
         height: 120px;
     }
     .product-view-img {
@@ -197,7 +282,6 @@ html, body {
     color: $white;
 
     .footer-inner-wrap {
-            outline: 1px solid blue;
         width: 1000px;
         margin: 0 auto;
     }
@@ -206,7 +290,6 @@ html, body {
         width: 480px;
     }
     .footer-navigation-list-item {
-            outline: 1px solid red;
         width: (480px/3);
         line-height: 25px;
         color: $white;
@@ -221,13 +304,16 @@ html, body {
         @include link-colors($white, $white, $white, $white, $white)
     }
 
+    .store-wrapper {
+        margin-bottom: 24px;
+    }
     .social-links-block {
-
+        margin-left: 20px;
     }
     .social-icon {
-        display: inline-block;
-        background-image: $ui-sprite;
-        background-repeat: no-repeat;
+        &:not(:first-child) {
+            margin-left: 8px;
+        }
     }
     .vk-social-icon {
         @include sprite($ui-sprite, 'vk-icon-45x43', true);
