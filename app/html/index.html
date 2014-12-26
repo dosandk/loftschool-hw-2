@@ -1,26 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
   <head>
     <title></title>
-    <script type="text/javascript"></script>
+    <script type="text/javascript" src="../js/libs/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="../js/libs/jquery-plugins/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="../js/app.js"></script>
     <link type="text/css" rel="stylesheet" href="../css/ui/default.css">
-    <link type="text/css" rel="stylesheet" href="../css/fonts/elektra.css">
+    <link type="text/css" rel="stylesheet" href="../css/fonts/elektra.css"><!--[if IE 8]>
+    <![endif]-->
   </head>
   <body>
+    <script type="text/javascript">$(function() {app.initialize()})</script>
     <div class="main-wrapper">
       <div class="container cf">
         <aside class="left-side-bar">
-          <div class="header-logo-container"><img src="../img/separated/logo-199x57.png" alt="logo" class="vertical-align-middle"></div>
+          <div class="header-logo-container"><a href="#"><img src="../img/separated/logo-199x57.png" alt="apple-shop-logo" class="vertical-align-middle"></a></div>
           <article class="order-form">
             <div class="order-form-title font-size-25">Заказать звонок</div>
-            <form id="call-order-form">
+            <form id="call-order-form" action="javascript:void(0)">
               <div class="call-order-form-fieldset">
                 <label for="user-name" class="call-order-form-label font-size-14">Ваше имя</label>
                 <input id="user-name" name="userName" type="text" placeholder="Ваше имя" class="call-order-form-input right font-size-12">
+                <div class="error-wrapper font-size-12"></div>
               </div>
               <div class="call-order-form-fieldset">
                 <label for="user-phone-number" class="call-order-form-label font-size-14">Телефон</label>
                 <input id="user-phone-number" name="userPhoneNumber" type="text" placeholder="+7 (912) 000-00-00" class="call-order-form-input right font-size-12">
+                <div class="error-wrapper font-size-12"></div>
               </div>
               <div class="call-order-form-fieldset display-table parent-width">
                 <div class="display-table-cell vertical-align-middle">
@@ -28,18 +34,55 @@
                 </div>
                 <div class="display-table-cell vertical-align-middle to-right-inline call-order-form-select-wrap">
                   <div class="display-inline-block relative">
-                    <select id="day-of-call" class="call-order-form-select font-size-12 right">
+                    <select id="day-of-call" name="dayOfCall" class="call-order-form-select custom font-size-12 right">
                       <option value="1">1</option>
                       <option value="2">2</option>
                       <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                      <option value="6">6</option>
+                      <option value="7">7</option>
+                      <option value="8">8</option>
+                      <option value="9">9</option>
+                      <option value="10">10</option>
+                      <option value="11">11</option>
+                      <option value="12">12</option>
+                      <option value="13">13</option>
+                      <option value="14">14</option>
+                      <option value="15">15</option>
+                      <option value="16">16</option>
+                      <option value="17">17</option>
+                      <option value="18">18</option>
+                      <option value="19">19</option>
+                      <option value="20">20</option>
+                      <option value="21">21</option>
+                      <option value="22">22</option>
+                      <option value="23">23</option>
+                      <option value="24">24</option>
+                      <option value="25">25</option>
+                      <option value="26">26</option>
+                      <option value="27">27</option>
+                      <option value="28">28</option>
+                      <option value="29">29</option>
+                      <option value="30">30</option>
+                      <option value="31">31</option>
                     </select>
                     <label for="day-of-call" class="inline-icon call-order-form-select-label"></label>
                   </div>
                   <div class="display-inline-block relative">
-                    <select id="month-of-call" class="call-order-form-select font-size-12 right">
+                    <select id="month-of-call" name="monthOfCall" class="call-order-form-select custom font-size-12 right">
                       <option value="1">1</option>
                       <option value="2">2</option>
                       <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                      <option value="6">6</option>
+                      <option value="7">7</option>
+                      <option value="8">8</option>
+                      <option value="9">9</option>
+                      <option value="10">10</option>
+                      <option value="11">11</option>
+                      <option value="12">12</option>
                     </select>
                     <label for="month-of-call" class="inline-icon call-order-form-select-label"></label>
                   </div>
@@ -47,6 +90,7 @@
               </div>
               <div class="call-order-form-fieldset">
                 <textarea id="user-message" name="userMessage" placeholder="Комментарий" class="call-order-form-textarea font-size-12"></textarea>
+                <div class="error-wrapper font-size-12"></div>
               </div>
               <input type="submit" value="Отправить" class="order-form-submit-btn">
               <input type="reset" value="Очистить" class="order-form-reset-btn right">
@@ -54,15 +98,15 @@
           </article>
           <article class="gallery">
             <ul class="gallery-list">
-              <li class="gallery-list-item"><img src="../img/separated/gallery-icon[8]-70x70.png" alt="gallery-item" class="vertical-align-middle"></li>
-              <li class="gallery-list-item"><img src="../img/separated/gallery-icon[7]-70x70.png" alt="gallery-item" class="vertical-align-middle"></li>
-              <li class="gallery-list-item"><img src="../img/separated/gallery-icon[6]-70x70.png" alt="gallery-item" class="vertical-align-middle"></li>
-              <li class="gallery-list-item"><img src="../img/separated/gallery-icon[5]-70x70.png" alt="gallery-item" class="vertical-align-middle"></li>
-              <li class="gallery-list-item"><img src="../img/separated/gallery-icon[4]-70x70.png" alt="gallery-item" class="vertical-align-middle"></li>
-              <li class="gallery-list-item"><img src="../img/separated/gallery-icon[3]-70x70.png" alt="gallery-item" class="vertical-align-middle"></li>
-              <li class="gallery-list-item"><img src="../img/separated/gallery-icon[2]-70x70.png" alt="gallery-item" class="vertical-align-middle"></li>
-              <li class="gallery-list-item"><img src="../img/separated/gallery-icon[1]-70x70.png" alt="gallery-item" class="vertical-align-middle"></li>
-              <li class="gallery-list-item"><img src="../img/separated/gallery-icon[0]-70x70.png" alt="gallery-item" class="vertical-align-middle"></li>
+              <li class="gallery-list-item"><a href="#"><img src="../img/separated/gallery-icon[8]-70x70.png" alt="gallery-item" class="vertical-align-middle"></a></li>
+              <li class="gallery-list-item"><a href="#"><img src="../img/separated/gallery-icon[7]-70x70.png" alt="gallery-item" class="vertical-align-middle"></a></li>
+              <li class="gallery-list-item"><a href="#"><img src="../img/separated/gallery-icon[6]-70x70.png" alt="gallery-item" class="vertical-align-middle"></a></li>
+              <li class="gallery-list-item"><a href="#"><img src="../img/separated/gallery-icon[5]-70x70.png" alt="gallery-item" class="vertical-align-middle"></a></li>
+              <li class="gallery-list-item"><a href="#"><img src="../img/separated/gallery-icon[4]-70x70.png" alt="gallery-item" class="vertical-align-middle"></a></li>
+              <li class="gallery-list-item"><a href="#"><img src="../img/separated/gallery-icon[3]-70x70.png" alt="gallery-item" class="vertical-align-middle"></a></li>
+              <li class="gallery-list-item"><a href="#"><img src="../img/separated/gallery-icon[2]-70x70.png" alt="gallery-item" class="vertical-align-middle"></a></li>
+              <li class="gallery-list-item"><a href="#"><img src="../img/separated/gallery-icon[1]-70x70.png" alt="gallery-item" class="vertical-align-middle"></a></li>
+              <li class="gallery-list-item"><a href="#"><img src="../img/separated/gallery-icon[0]-70x70.png" alt="gallery-item" class="vertical-align-middle"></a></li>
             </ul>
           </article>
           <article class="display-table-cell vertical-align-middle contacts font-size-14">
@@ -73,7 +117,7 @@
         </aside>
         <section class="content">
           <div class="carousel-container relative">
-            <div class="img-container"><img src="../img/separated/carousel-740x300.jpg" class="vertical-align-middle"></div>
+            <div class="img-container"><img src="../img/separated/carousel-740x300.jpg" alt="carousel-item" class="vertical-align-middle"></div>
             <div class="inline-icon nav-arrow-left font-size-17">
               <div class="display-table parent-size to-center-inline"><span class="display-table-cell vertical-align-middle nav-arrow-txt">Пред.</span></div>
             </div>
@@ -99,7 +143,7 @@
               <ul class="main-gallery-list cf">
                 <li class="main-gallery-list-item">
                   <div class="display-table parent-width fixed-table-layout product-view-table">
-                    <div class="display-table-cell vertical-align-middle product-view-img"><img src="../img/separated/product-[2].jpg"></div>
+                    <div class="display-table-cell vertical-align-middle product-view-img"><img src="../img/separated/product-[2].jpg" alt="product-[2"></div>
                     <div class="display-table-cell vertical-align-middle product-view-description font-size-15"><a href="#">Apple Thunderb Display 27''</a></div>
                   </div>
                   <table class="product-description-table parent-width fixed-table-layout font-size-14">
@@ -127,7 +171,7 @@
                 </li>
                 <li class="main-gallery-list-item">
                   <div class="display-table parent-width fixed-table-layout product-view-table">
-                    <div class="display-table-cell vertical-align-middle product-view-img"><img src="../img/separated/product-[1].jpg"></div>
+                    <div class="display-table-cell vertical-align-middle product-view-img"><img src="../img/separated/product-[1].jpg" alt="product-[1"></div>
                     <div class="display-table-cell vertical-align-middle product-view-description font-size-15"><a href="#">Apple Thunderb Display 27''</a></div>
                   </div>
                   <table class="product-description-table parent-width fixed-table-layout font-size-14">
@@ -155,7 +199,7 @@
                 </li>
                 <li class="main-gallery-list-item">
                   <div class="display-table parent-width fixed-table-layout product-view-table">
-                    <div class="display-table-cell vertical-align-middle product-view-img"><img src="../img/separated/product-[0].jpg"></div>
+                    <div class="display-table-cell vertical-align-middle product-view-img"><img src="../img/separated/product-[0].jpg" alt="product-[0"></div>
                     <div class="display-table-cell vertical-align-middle product-view-description font-size-15"><a href="#">Apple Thunderb Display 27''</a></div>
                   </div>
                   <table class="product-description-table parent-width fixed-table-layout font-size-14">
@@ -285,7 +329,7 @@
       </div>
       <footer class="footer">
         <div class="display-table parent-size fixed-table-layout footer-inner-wrap">
-          <div class="display-table-cell vertical-align-middle"><img src="../img/separated/logo-footer-139x39.png"></div>
+          <div class="display-table-cell vertical-align-middle"><a href=""><img src="../img/separated/logo-footer-139x39.png" alt="apple-shop-logo"></a></div>
           <div class="display-table-cell vertical-align-middle footer-navigation-list font-size-15">
             <div class="footer-navigation-list-item">
               <h3 class="footer-navigation-list-item-title">О магазине</h3>

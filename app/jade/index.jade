@@ -2,55 +2,67 @@ doctype html
 - var smallGalleryItem = 9
 - var productGalleryItem1 = 3
 - var productGalleryItem2 = 6
-- var galleryImgs = ['product-[1]-85x61', 'product-[2]-58x86', 'product-[3]-73x67', 'product-[4]-67x68']
-html(lang="en")
+html(lang="ru")
     head
         title= pageTitle
-        script(type='text/javascript')
+        script(type='text/javascript', src='../js/libs/jquery/jquery.min.js')
+        script(type='text/javascript', src='../js/libs/jquery-plugins/jquery.validate.min.js')
+        script(type='text/javascript', src='../js/app.js')
         link(type='text/css', rel="stylesheet", href="../css/ui/default.css")
         link(type='text/css', rel="stylesheet", href="../css/fonts/elektra.css")
 
+        <!--[if IE 8]>
+
+        <![endif]-->
+
     body
+
+        script(type='text/javascript') $(function() {app.initialize()})
+
         div.main-wrapper
 
             div.container.cf
                 aside.left-side-bar
                     div.header-logo-container
-                        img.vertical-align-middle(src='../img/separated/logo-199x57.png', alt='apple-shop-logo')
+                        a(href='#'): img.vertical-align-middle(src='../img/separated/logo-199x57.png', alt='apple-shop-logo')
                     article.order-form
                         div.order-form-title.font-size-25 Заказать звонок
-                        form(id='call-order-form')
+                        form(id='call-order-form', action='javascript:void(0)')
                             div.call-order-form-fieldset
                                 label.call-order-form-label.font-size-14(for='user-name') Ваше имя
                                 input.call-order-form-input.right.font-size-12(id='user-name', name='userName' type='text', placeholder='Ваше имя')
+                                div.error-wrapper.font-size-12
                             div.call-order-form-fieldset
                                 label.call-order-form-label.font-size-14(for='user-phone-number') Телефон
                                 input.call-order-form-input.right.font-size-12(id='user-phone-number', name='userPhoneNumber', type='text', placeholder='+7 (912) 000-00-00')
+                                div.error-wrapper.font-size-12
                             div.call-order-form-fieldset.display-table.parent-width
                                 div.display-table-cell.vertical-align-middle
                                     label.font-size-14 Дата звонка
                                 div.display-table-cell.vertical-align-middle.to-right-inline.call-order-form-select-wrap
                                     div.display-inline-block.relative
-                                        select.call-order-form-select.font-size-12.right(id='day-of-call')
-                                            option(value='1') 1
-                                            option(value='2') 2
-                                            option(value='3') 3
+                                        select.call-order-form-select.custom.font-size-12.right(id='day-of-call', name='dayOfCall')
+                                            - var days = 0
+                                            while days++ < 31
+                                                option(value='#{days}') #{days}
                                         label.inline-icon.call-order-form-select-label(for='day-of-call')
                                     div.display-inline-block.relative
-                                        select.call-order-form-select.font-size-12.right(id='month-of-call')
-                                            option(value='1') 1
-                                            option(value='2') 2
-                                            option(value='3') 3
+                                        select.call-order-form-select.custom.font-size-12.right(id='month-of-call', name='monthOfCall')
+                                            - var months = 0
+                                            while months++ < 12
+                                                option(value='#{months}') #{months}
                                         label.inline-icon.call-order-form-select-label(for='month-of-call')
                             div.call-order-form-fieldset
                                 textarea.call-order-form-textarea.font-size-12(id='user-message', name='userMessage', placeholder='Комментарий')
+                                div.error-wrapper.font-size-12
                             input.order-form-submit-btn(type='submit', value='Отправить')
                             input.order-form-reset-btn.right(type='reset', value='Очистить')
                     article.gallery
                         ul.gallery-list
                             while smallGalleryItem-- > 0
                                 li.gallery-list-item
-                                    img.vertical-align-middle(src='../img/separated/gallery-icon[#{smallGalleryItem}]-70x70.png', alt='gallery-item')
+                                    a(href='#')
+                                        img.vertical-align-middle(src='../img/separated/gallery-icon[#{smallGalleryItem}]-70x70.png', alt='gallery-item')
                     article.display-table-cell.vertical-align-middle.contacts.font-size-14
                         div
                             span.inline-icon.vertical-align-middle.location-icon
@@ -138,7 +150,7 @@ html(lang="en")
             footer.footer
                 div.display-table.parent-size.fixed-table-layout.footer-inner-wrap
                     div.display-table-cell.vertical-align-middle
-                        img(src='../img/separated/logo-footer-139x39.png', alt='apple-shop-logo')
+                        a(href=''): img(src='../img/separated/logo-footer-139x39.png', alt='apple-shop-logo')
                     div.display-table-cell.vertical-align-middle.footer-navigation-list.font-size-15
                             div.footer-navigation-list-item
                                 h3.footer-navigation-list-item-title О магазине

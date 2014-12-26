@@ -527,3 +527,9 @@ html, body {
   height: 32px;
   width: 90px;
 }
+
+.error-wrapper {
+  color: #FF0000;
+  text-align: right;
+  cursor: pointer;
+}

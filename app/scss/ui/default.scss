@@ -332,3 +332,9 @@ html, body {
         @include sprite($ui-sprite, 'google-play-90x32', true);
     }
 }
+
+.error-wrapper {
+    color: $error;
+    text-align: right;
+    cursor: pointer;
+}
