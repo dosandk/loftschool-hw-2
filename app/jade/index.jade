@@ -15,6 +15,7 @@ html(lang="ru")
 
         link(type='text/css', rel="stylesheet", href="../css/ui/default.css")
         link(type='text/css', rel="stylesheet", href="../css/fonts/elektra.css")
+        link(type='text/css', rel="stylesheet", href="../css/jquery-plugins/jcarousel.basic.css")
 
         <!--[if lt IE 9]>
         script(type='text/javascript', src='../js/libs/html5js/html5.js')
@@ -77,12 +78,15 @@ html(lang="ru")
 
                 section.content
                     div.carousel-container.relative
-                        div.img-container
-                            img.vertical-align-middle(src="../img/separated/carousel-740x300.jpg", alt='carousel-item')
-                        div.inline-icon.nav-arrow-left.font-size-17
+                        div.img-container.jcarousel
+                            ul
+                                - var carouselItem = 4
+                                while carouselItem--
+                                    li: img.vertical-align-middle(src="../img/separated/carousel[#{carouselItem}]-740x300.jpg", alt='carousel-item')
+                        div.inline-icon.nav-arrow-left.jcarousel-prev.none-selectable.font-size-17
                             div.display-table.parent-size.to-center-inline: span.display-table-cell.vertical-align-middle.nav-arrow-txt Пред.
                         div.inline-icon.nav-arrow-right.font-size-17
-                            div.display-table.parent-size.to-center-inline: span.display-table-cell.vertical-align-middle.nav-arrow-txt След.
+                            div.display-table.parent-size.jcarousel-next.none-selectable.to-center-inline: span.display-table-cell.vertical-align-middle.nav-arrow-txt След.
                         div.img-description-block
                             div.font-size-18: a.img-description-block-title-link(href='#') iMac за пол цены
                             div.img-description-block-txt.font-size-14 Принеси свой старый Mac и получи скидку на новый!
@@ -193,6 +197,7 @@ html(lang="ru")
 
         script(type='text/javascript', src='../js/libs/jquery/jquery.min.js')
         script(type='text/javascript', src='../js/libs/jquery-plugins/jquery.validate.min.js')
+        script(type='text/javascript', src='../js/libs/jquery-plugins/jquery.jcarousel.min.js')
         script(type='text/javascript', src='../js/app.js')
 
         script(type='text/javascript') $(function() {app.initialize()})

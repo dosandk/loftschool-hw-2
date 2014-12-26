@@ -5,6 +5,7 @@ var app = {
         console.log('application was initialized');
         self.addEventsListeners();
         self.orderFormValidationInit();
+        self.jCarouselInit();
     },
     addEventsListeners: function () {
         var self = this;
@@ -60,4 +61,18 @@ app.scrollTopEvent = function() {
             $('html, body').animate({scrollTop: 0}, delay);
         }
     })
+};
+
+app.jCarouselInit = function() {
+    $('.jcarousel').jcarousel({
+        wrap: 'circular'
+    });
+
+    $('.jcarousel-prev').click(function() {
+        $('.jcarousel').jcarousel('scroll', '-=1');
+    });
+
+    $('.jcarousel-next').click(function() {
+        $('.jcarousel').jcarousel('scroll', '+=1');
+    });
 };
