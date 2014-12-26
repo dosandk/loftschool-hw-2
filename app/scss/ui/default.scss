@@ -270,6 +270,9 @@ html, body {
     .product-view-description {
         padding-left: 10px;
     }
+    .product-view-description-link {
+        @include link-colors($blue, #613993, $blue, $blue, $blue);
+    }
     .product-description-table {
         color: $steal-blue;
         line-height: 20px;

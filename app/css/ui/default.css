@@ -461,6 +461,21 @@ html, body {
 .content .product-view-description {
   padding-left: 10px;
 }
+.content .product-view-description-link {
+  color: #00b9fe;
+}
+.content .product-view-description-link:visited {
+  color: #00b9fe;
+}
+.content .product-view-description-link:focus {
+  color: #00b9fe;
+}
+.content .product-view-description-link:hover {
+  color: #613993;
+}
+.content .product-view-description-link:active {
+  color: #00b9fe;
+}
 .content .product-description-table {
   color: #5c7b98;
   line-height: 20px;

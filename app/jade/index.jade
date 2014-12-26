@@ -4,20 +4,23 @@ doctype html
 - var productGalleryItem2 = 6
 html(lang="ru")
     head
-        title= pageTitle
-        script(type='text/javascript', src='../js/libs/jquery/jquery.min.js')
-        script(type='text/javascript', src='../js/libs/jquery-plugins/jquery.validate.min.js')
-        script(type='text/javascript', src='../js/app.js')
+        title loftschool homework-2
+
+        meta(charset="utf-8")
+        meta(http-equiv='Content-Type' content='text/html; charset=UTF-8')
+        meta(name='viewport' content='width=device-width, initial-scale=1')
+
+        link(rel='icon' href='../favicon-logo-16x16.ico' type='image/x-icon')
+        link(rel='shortcut icon' href='../favicon-logo-16x16.ico' type='image/x-icon')
+
         link(type='text/css', rel="stylesheet", href="../css/ui/default.css")
         link(type='text/css', rel="stylesheet", href="../css/fonts/elektra.css")
 
-        <!--[if IE 8]>
-
+        <!--[if lt IE 9]>
+        script(type='text/javascript', src='../js/libs/html5js/html5.js')
         <![endif]-->
 
     body
-
-        script(type='text/javascript') $(function() {app.initialize()})
 
         div.main-wrapper
 
@@ -98,7 +101,7 @@ html(lang="ru")
                                             div.display-table-cell.vertical-align-middle.product-view-img
                                                 img(src='../img/separated/product-[#{productGalleryItem1}].jpg', alt='product-[#{productGalleryItem1}')
                                             div.display-table-cell.vertical-align-middle.product-view-description.font-size-15
-                                                a(href='#') Apple Thunderb Display 27''
+                                                a.product-view-description-link(href='#') Apple Thunderb Display 27''
                                         table.product-description-table.parent-width.fixed-table-layout.font-size-14
                                             tr
                                                 td.parent-half-width Артикул
@@ -129,7 +132,7 @@ html(lang="ru")
                                             div.display-table-cell.vertical-align-middle.product-view-img
                                                 img(src='../img/separated/product-[#{productGalleryItem2}].jpg')
                                             div.display-table-cell.vertical-align-middle.product-view-description.font-size-15
-                                                a(href='#') Apple Thunderb Display 27''
+                                                a.product-view-description-link(href='#') Apple Thunderb Display 27''
                                         table.product-description-table.parent-width.fixed-table-layout.font-size-14
                                             tr
                                                 td.parent-half-width Артикул
@@ -183,3 +186,9 @@ html(lang="ru")
                             li.inline-icon.social-icon.vk-social-icon: a.display-block.parent-size(href="https://vk.com"): span.hide https://vk.com
                             li.inline-icon.social-icon.fb-social-icon: a.display-blockcf.parent-size(href="https://facebook.com"): span.hide https://facebook.com
                             li.inline-icon.social-icon.tw-social-icon: a.display-block.parent-size(href="https://twitter.com"): span.hide https://twitter.com
+
+        script(type='text/javascript', src='../js/libs/jquery/jquery.min.js')
+        script(type='text/javascript', src='../js/libs/jquery-plugins/jquery.validate.min.js')
+        script(type='text/javascript', src='../js/app.js')
+
+        script(type='text/javascript') $(function() {app.initialize()})
