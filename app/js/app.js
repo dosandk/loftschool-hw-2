@@ -31,9 +31,6 @@ app.orderFormValidationInit = function () {
             error.appendTo(element.next('.error-wrapper'));
         },
         submitHandler: function(form) {
-
-            console.log($(form).serialize());
-
             $.ajax({
                 url: '../php-core/order-form.php',
                 type: 'POST',
@@ -43,7 +40,7 @@ app.orderFormValidationInit = function () {
                     $(form)[0].reset();
                     console.log(data);
                 }).fail(function(error) {
-                    //console.log('fail');
+                    console.log(error);
                 }).always(function() {
                     //console.log('always');
                 });
