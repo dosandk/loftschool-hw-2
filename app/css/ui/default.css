@@ -397,9 +397,21 @@ html, body {
   box-sizing: border-box;
   bottom: 0;
 }
-.content .img-description-block-title {
-  color: #00b9fe;
+.content .img-description-block-title-link {
   text-decoration: underline;
+  color: #00b9fe;
+}
+.content .img-description-block-title-link:visited {
+  color: #00b9fe;
+}
+.content .img-description-block-title-link:focus {
+  color: #00b9fe;
+}
+.content .img-description-block-title-link:hover {
+  color: #00b9fe;
+}
+.content .img-description-block-title-link:active {
+  color: #00b9fe;
 }
 .content .img-description-block-txt {
   color: #fff;

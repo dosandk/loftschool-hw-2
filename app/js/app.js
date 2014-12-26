@@ -29,12 +29,13 @@ app.orderFormValidationInit = function () {
             console.log($(form).serialize());
 
             $.ajax({
-                url: '',
+                url: '../php-core/order-form.php',
                 type: 'POST',
                 data: $(form).serialize()
             })
                 .done(function(data) {
-
+                    $(form)[0].reset();
+                    console.log(data);
                 }).fail(function(error) {
                     //console.log('fail');
                 }).always(function() {

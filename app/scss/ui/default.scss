@@ -219,9 +219,9 @@ html, body {
         @include box-sizing(border-box);
         bottom: 0;
     }
-    .img-description-block-title {
-        color: $blue;
+    .img-description-block-title-link {
         text-decoration: underline;
+        @include link-colors($blue, $blue, $blue, $blue, $blue);
     }
     .img-description-block-txt {
         color: $white;
@@ -301,7 +301,7 @@ html, body {
     }
     .footer-navigation-list-item-link {
         text-decoration: underline;
-        @include link-colors($white, $white, $white, $white, $white)
+        @include link-colors($white, $white, $white, $white, $white);
     }
 
     .store-wrapper {
