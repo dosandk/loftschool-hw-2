@@ -395,6 +395,10 @@ html, body {
   display: table-cell;
   padding: 0 12px;
 }
+.content .img-carousel-item {
+  width: 740px;
+  height: 300px;
+}
 .content .img-description-block {
   width: 100%;
   color: #fff;

@@ -68,11 +68,11 @@ app.jCarouselInit = function() {
         wrap: 'circular'
     });
 
-    $('.jcarousel-prev').click(function() {
-        $('.jcarousel').jcarousel('scroll', '-=1');
+    $('.jcarousel-control-prev').jcarouselControl({
+        target: '-=1'
     });
 
-    $('.jcarousel-next').click(function() {
-        $('.jcarousel').jcarousel('scroll', '+=1');
+    $('.jcarousel-control-next').jcarouselControl({
+        target: '+=1'
     });
 };

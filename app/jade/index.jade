@@ -78,15 +78,15 @@ html(lang="ru")
 
                 section.content
                     div.carousel-container.relative
-                        div.img-container.jcarousel
+                        div.jcarousel
                             ul
                                 - var carouselItem = 4
                                 while carouselItem--
-                                    li: img.vertical-align-middle(src="../img/separated/carousel[#{carouselItem}]-740x300.jpg", alt='carousel-item')
-                        div.inline-icon.nav-arrow-left.jcarousel-prev.none-selectable.font-size-17
-                            div.display-table.parent-size.to-center-inline: span.display-table-cell.vertical-align-middle.nav-arrow-txt Пред.
+                                    li.img-carousel-item(style="background: url('../img/separated/carousel[#{carouselItem}]-740x300.jpg')", alt='carousel-item')
+                        div.inline-icon.nav-arrow-left.font-size-17
+                            div.display-table.parent-size.jcarousel-control-prev.none-selectable.to-center-inline: span.display-table-cell.vertical-align-middle.nav-arrow-txt Пред.
                         div.inline-icon.nav-arrow-right.font-size-17
-                            div.display-table.parent-size.jcarousel-next.none-selectable.to-center-inline: span.display-table-cell.vertical-align-middle.nav-arrow-txt След.
+                            div.display-table.parent-size.jcarousel-control-next.none-selectable.to-center-inline: span.display-table-cell.vertical-align-middle.nav-arrow-txt След.
                         div.img-description-block
                             div.font-size-18: a.img-description-block-title-link(href='#') iMac за пол цены
                             div.img-description-block-txt.font-size-14 Принеси свой старый Mac и получи скидку на новый!
