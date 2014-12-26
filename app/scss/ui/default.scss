@@ -279,6 +279,41 @@ html, body {
     }
 }
 
+.scroll-up-arrow {
+    width: 77px;
+    height: 39px;
+    background: $blue;
+    color: $white;
+    padding: 0 10px;
+    font-family: 'elektra-light-pro-bold';
+    position: absolute;
+    top: -50px;
+    right: 0;
+    &:hover {
+        cursor: pointer;
+    }
+    &:after,
+    &:before {
+        display: block;
+        content: '';
+        width: 8px;
+        height: 8px;
+        position: absolute;
+        left: 50%;
+        margin-left: -4px;
+    }
+    &:after {
+        background: $white;
+        bottom: -4px;
+        @include transform(rotate(135deg));
+    }
+    &:before {
+        background: $blue;
+        top: -4px;
+        @include transform(rotate(135deg));
+    }
+}
+
 .footer {
     height: 238px;
     background:  inline-image('separated/footer-bg-99x99.png');
@@ -286,6 +321,7 @@ html, body {
 
     .footer-inner-wrap {
         width: 1000px;
+        height: 100%;
         margin: 0 auto;
     }
 

@@ -3,7 +3,13 @@ var app = {
         var self = this;
 
         console.log('application was initialized');
+        self.addEventsListeners();
         self.orderFormValidationInit();
+    },
+    addEventsListeners: function () {
+        var self = this;
+
+        self.scrollTopEvent();
     }
 };
 
@@ -43,4 +49,15 @@ app.orderFormValidationInit = function () {
                 });
         }
     });
+};
+
+app.scrollTopEvent = function() {
+    var self = this,
+        delay = 400;
+
+    $('#scroll-top-btn').on('click', function() {
+        if ($(document).scrollTop() > 0) {
+            $('html, body').animate({scrollTop: 0}, delay);
+        }
+    })
 };
