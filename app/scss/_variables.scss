@@ -25,7 +25,12 @@ $font-sizes: (
 );
 
 // TODO see sass object variables
-$elektra-fonts-names: 'elektra-light-pro', 'elektra-light-pro-bold', 'elektra-medium-pro', 'elektra-medium-pro-italic';
+$elektra-fonts-names:(
+    '300' : 'elektra-light-pro',
+    '500' : 'elektra-medium-pro',
+    '500i': 'elektra-medium-pro-italic',
+    '700' : 'elektra-light-pro-bold'
+);
 $elektra-font-path: 'elektra';
 
 // sprites settings

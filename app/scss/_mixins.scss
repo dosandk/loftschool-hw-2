@@ -5,19 +5,21 @@
 }
 
 @mixin font-includer($font-names-scope, $font-path, $embed-woff: false) {
-    @each $font-name in $font-names-scope {
-        @include font-face('#{$font-name}',
+    @each $font-size-name, $font-name-value in $font-names-scope {
+        /* font-weight: #{$font-size-name} */
+        @include font-face('#{$font-name-value}',
             font-files(
-                '#{$font-path}/#{$font-name}.woff', 'woff',
-                '#{$font-path}/#{$font-name}.ttf', 'truetype',
-                '#{$font-path}/#{$font-name}.svg##{$font-name}', 'svg'
+                '#{$font-path}/#{$font-name-value}.woff', 'woff',
+                '#{$font-path}/#{$font-name-value}.ttf', 'truetype',
+                '#{$font-path}/#{$font-name-value}.svg##{$font-name-value}', 'svg'
             ),
-            '#{$font-path}/#{$font-name}.eot', normal, normal
+            '#{$font-path}/#{$font-name-value}.eot', normal, normal
         );
         @if ($embed-woff) {
-            @include font-face('#{$font-name}',
-                inline-font-files('#{$font-path}/#{$font-name}.woff', woff)
+            @include font-face('#{$font-name-value}',
+                inline-font-files('#{$font-path}/#{$font-name-value}.woff', woff)
             );
         }
     }
 }
+
