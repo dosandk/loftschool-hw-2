@@ -5,9 +5,9 @@ php_value magic_quotes_gpc off
 php_value short_open_tag 1
 
 Options +FollowSymLinks
-#Options -Indexes
+Options -Indexes
 
-#DirectoryIndex main.php
+DirectoryIndex html/index.html
 
 ErrorDocument 404 /views/404.php
 
