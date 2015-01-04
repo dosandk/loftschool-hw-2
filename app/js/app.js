@@ -15,9 +15,10 @@ var app = {
 };
 
 app.orderFormValidationInit = function () {
-    var self = this;
+    var self = this,
+        $callOrderForm = $('#call-order-form');
 
-    $('#call-order-form').validate({
+    $callOrderForm.validate({
         rules: {
             userName: 'required',
             userPhoneNumber: 'required',
@@ -30,6 +31,9 @@ app.orderFormValidationInit = function () {
         },
         errorPlacement: function(error, element){
             error.appendTo(element.next('.error-wrapper'));
+        },
+        success: function(label) {
+            console.error(1);
         },
         submitHandler: function(form) {
             $.ajax({

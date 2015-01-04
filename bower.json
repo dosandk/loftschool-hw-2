@@ -1,22 +1,24 @@
 {
-  "name": "loftschool",
-  "version": "0.0.1",
-  "homepage": "https://github.com/dosandk/loftschool-hw",
-  "authors": [
-    "Vladimir Shevchuk <dosandkv@gmail.com>"
-  ],
-  "license": "MIT",
-  "ignore": [
-    "**/.*",
-    "node_modules",
-    "bower_components",
-    "test",
-    "tests"
-  ],
-  "dependencies": {
-    "jquery": "~2.1.1"
-  },
-  "devDependencies": {
-    "jcarousel": "~0.3.1"
-  }
+    "name": "loftschool",
+    "version": "0.0.1",
+    "homepage": "https://github.com/dosandk/loftschool-hw",
+    "authors": [
+        "Vladimir Shevchuk <dosandkv@gmail.com>"
+    ],
+    "license": "MIT",
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "test",
+        "tests"
+    ],
+    "dependencies": {
+        "jquery": "latest",
+        "jcarousel": "latest",
+        "validate": "latest"
+    },
+    "devDependencies": {
+        "jcarousel": "~0.3.1"
+    }
 }
