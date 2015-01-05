@@ -1,7 +1,7 @@
 @import "base";
 
 .main-wrapper {
-    font-family: 'elektra-light-pro';
+    @extend %elektra-light-pro;
 }
 .container {
     width: 1000px;
@@ -25,7 +25,7 @@
     }
     .order-form-title {
         text-align: center;
-        font-family: 'elektra-light-pro-bold';
+        @extend %elektra-light-pro-bold;
         margin-bottom: 20px;
     }
     .call-order-form-fieldset {
@@ -77,7 +77,7 @@
         height: 35px;
         color: $white;
         padding: 0 5px;
-        font-family: 'elektra-light-pro-bold';
+        @extend %elektra-light-pro-bold;
         cursor: pointer;
         @include box-sizing(border-box);
     }
@@ -141,7 +141,7 @@
         top: 50%;
         margin-top: -46px;
         position: absolute;
-        font-family: 'elektra-light-pro-bold';
+        @extend %elektra-light-pro-bold;
         &:hover {
             cursor: pointer;
             color: $white;
@@ -205,7 +205,7 @@
     .gallery-category-title {
         width: 280px;
         color: $steal-blue;
-        font-family: 'elektra-light-pro-bold';
+        @extend %elektra-light-pro-bold;
     }
     .header-line {
         height: 1px;
@@ -236,7 +236,7 @@
     background: $blue;
     color: $white;
     padding: 0 10px;
-    font-family: 'elektra-light-pro-bold';
+    @extend %elektra-light-pro-bold;
     position: absolute;
     top: -50px;
     right: 0;
@@ -286,7 +286,7 @@
         float: left;
     }
     .footer-navigation-list-item-title {
-        font-family: 'elektra-light-pro-bold';
+        @extend %elektra-light-pro-bold;
         margin-bottom: 2px;
     }
     .footer-navigation-list-item-link {

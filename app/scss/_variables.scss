@@ -1,4 +1,9 @@
 // default settings
+$legacy-support-for-ie7: true;
+$legacy-support-for-ie8: true;
+$experimental-support-for-microsoft: true;
+$experimental-support-for-pie: false;
+$experimental-support-for-svg: true;
 
 // colors settings
 
@@ -22,15 +27,22 @@ $font-sizes: (
     font-size-18: 18px,
     font-size-25: 25px,
     font-size-28: 28px
-);
+) !global;
 
-// TODO see sass object variables
 $elektra-fonts-names:(
-    '300' : 'elektra-light-pro',
-    '500' : 'elektra-medium-pro',
-    '500i': 'elektra-medium-pro-italic',
-    '700' : 'elektra-light-pro-bold'
-);
+    'elektra-light-pro'         : '300',
+    'elektra-medium-pro'        : '500',
+    'elektra-light-pro-bold'    : '700',
+    'elektra-medium-pro-italic' : '500'
+) !global;
+
+$elektra-fonts-fallbacks:(
+    'elektra-light-pro'         : 'serif',
+    'elektra-medium-pro'        : 'serif',
+    'elektra-light-pro-bold'    : 'serif',
+    'elektra-medium-pro-italic' : 'serif'
+) !global;
+
 $elektra-font-path: 'elektra';
 
 // sprites settings

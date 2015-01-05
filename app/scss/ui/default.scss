@@ -1,4 +1,6 @@
 @import "base";
+@import "reset";
+@import "table-scaffolding";
 
 html, body {
     height: 100%;
@@ -59,7 +61,7 @@ html, body {
 
 /* ======================================= */
 .main-wrapper {
-    font-family: 'elektra-light-pro';
+    @extend %elektra-light-pro;
 }
 .container {
     width: 1000px;
@@ -83,7 +85,7 @@ html, body {
     }
     .order-form-title {
         text-align: center;
-        font-family: 'elektra-light-pro-bold';
+        @extend %elektra-light-pro-bold;
         margin-bottom: 20px;
     }
     .call-order-form-fieldset {
@@ -135,7 +137,7 @@ html, body {
         height: 35px;
         color: $white;
         padding: 0 5px;
-        font-family: 'elektra-light-pro-bold';
+        @extend %elektra-light-pro-bold;
         cursor: pointer;
         @include box-sizing(border-box);
     }
@@ -199,7 +201,7 @@ html, body {
         top: 50%;
         margin-top: -46px;
         position: absolute;
-        font-family: 'elektra-light-pro-bold';
+        @extend %elektra-light-pro-bold;
         &:hover {
             cursor: pointer;
             color: $white;
@@ -267,7 +269,7 @@ html, body {
     .gallery-category-title {
         width: 280px;
         color: $steal-blue;
-        font-family: 'elektra-light-pro-bold';
+        @extend %elektra-light-pro-bold;
     }
     .header-line {
         height: 1px;
@@ -298,7 +300,7 @@ html, body {
     background: $blue;
     color: $white;
     padding: 0 10px;
-    font-family: 'elektra-light-pro-bold';
+    @extend %elektra-light-pro-bold;
     position: absolute;
     top: -50px;
     right: 0;
@@ -348,7 +350,7 @@ html, body {
         float: left;
     }
     .footer-navigation-list-item-title {
-        font-family: 'elektra-light-pro-bold';
+        @extend %elektra-light-pro-bold;
         margin-bottom: 2px;
     }
     .footer-navigation-list-item-link {

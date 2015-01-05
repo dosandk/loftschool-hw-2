@@ -1,3 +1,15 @@
+.main-wrapper {
+  font-family: "elektra-light-pro", "serif";
+  font-weight: "300";
+}
+
+.left-side-bar .order-form-title, .left-side-bar .order-form-submit-btn,
+.left-side-bar .order-form-reset-btn, .content .nav-arrow-left,
+.content .nav-arrow-right, .content .gallery-category-title, .scroll-up-arrow, .footer .footer-navigation-list-item-title {
+  font-family: "elektra-light-pro-bold", "serif";
+  font-weight: "700";
+}
+
 html, body, div, span, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 abbr, address, cite, code,
@@ -175,7 +187,7 @@ html, body {
 /* ======================================= */
 .inline-icon {
   display: inline-block;
-  background-image: url('../../img/spritesheets/ui.png');
+  background-image: url('../../../img/spritesheets/ui.png');
   background-repeat: no-repeat;
 }
 
@@ -212,10 +224,6 @@ html, body {
 }
 
 /* ======================================= */
-.main-wrapper {
-  font-family: 'elektra-light-pro';
-}
-
 .container {
   width: 1000px;
   margin: 38px auto;
@@ -237,7 +245,6 @@ html, body {
 }
 .left-side-bar .order-form-title {
   text-align: center;
-  font-family: 'elektra-light-pro-bold';
   margin-bottom: 20px;
 }
 .left-side-bar .call-order-form-fieldset {
@@ -290,7 +297,6 @@ html, body {
   height: 35px;
   color: #fff;
   padding: 0 5px;
-  font-family: 'elektra-light-pro-bold';
   cursor: pointer;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -368,7 +374,6 @@ html, body {
   top: 50%;
   margin-top: -46px;
   position: absolute;
-  font-family: 'elektra-light-pro-bold';
 }
 .content .nav-arrow-left:hover,
 .content .nav-arrow-right:hover {
@@ -459,7 +464,6 @@ html, body {
 .content .gallery-category-title {
   width: 280px;
   color: #5c7b98;
-  font-family: 'elektra-light-pro-bold';
 }
 .content .header-line {
   height: 1px;
@@ -500,7 +504,6 @@ html, body {
   background: #00b9fe;
   color: #fff;
   padding: 0 10px;
-  font-family: 'elektra-light-pro-bold';
   position: absolute;
   top: -50px;
   right: 0;
@@ -554,7 +557,6 @@ html, body {
   float: left;
 }
 .footer .footer-navigation-list-item-title {
-  font-family: 'elektra-light-pro-bold';
   margin-bottom: 2px;
 }
 .footer .footer-navigation-list-item-link {

@@ -15,17 +15,19 @@ var gulp = require('gulp'),
     size = require('gulp-size'),
     plumber = require('gulp-plumber'),
     uncss = require('gulp-uncss'),
+    gulpkss = require('gulp-kss'),
     compass = require('gulp-compass');
 
 gulp.task('compass', function() {
-    return gulp.src('./dev/scss/*.scss')
+    gulp.src('app/scss/*.scss')
+        .pipe(plumber())
         .pipe(compass({
-            config_file: './config.rb',
-            css: 'dev/css',
-            sass: 'dev/scss',
+            config_file: 'config.rb',
+            css: 'app/css',
+            sass: 'app/scss',
             assetCacheBuster: false
         }))
-        .pipe(gulp.dest('./dev/css'));
+        .pipe(gulp.dest('app/styleguide/public'));
 });
 
 gulp.task('images', function() {
@@ -61,8 +63,32 @@ gulp.task('concatCss', function() {
         .pipe(gulp.dest('dist/css/'));
 });
 
+gulp.task('kss', function() {
+    gulp.src(['app/scss/**/*.scss'])
+        .pipe(gulpkss({
+            overview: 'app/styleguide.md'
+        }))
+        .pipe(gulp.dest('app/styleguide'));
+
+    gulp.src('app/scss/*.scss')
+        .pipe(compass({
+            config_file: 'config.rb',
+            css: 'app/css',
+            sass: 'app/scss',
+            assetCacheBuster: false
+        }))
+        //.pipe(concat('style.css'))
+        .pipe(gulp.dest('app/styleguide/public'));
+});
+
+var config = require('./my-config.json');
+
+gulp.task('riba', function() {
+    console.log(config);
+});
+
 gulp.task('uncss', function() {
-    return gulp.src('dist/css/ui.min.css')
+    gulp.src('dist/css/ui.min.css')
         .pipe(plumber())
         .pipe(uncss({
             html: ['dist/index.html']

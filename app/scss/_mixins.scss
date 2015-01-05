@@ -5,21 +5,26 @@
 }
 
 @mixin font-includer($font-names-scope, $font-path, $embed-woff: false) {
-    @each $font-size-name, $font-name-value in $font-names-scope {
-        /* font-weight: #{$font-size-name} */
-        @include font-face('#{$font-name-value}',
+    @each $font-name, $font-weight-value in $font-names-scope {
+        /* font-weight: #{$font-weight-value} */
+        @include font-face('#{$font-name}',
             font-files(
-                '#{$font-path}/#{$font-name-value}.woff', 'woff',
-                '#{$font-path}/#{$font-name-value}.ttf', 'truetype',
-                '#{$font-path}/#{$font-name-value}.svg##{$font-name-value}', 'svg'
+                '#{$font-path}/#{$font-name}.woff', 'woff',
+                '#{$font-path}/#{$font-name}.ttf', 'truetype',
+                '#{$font-path}/#{$font-name}.svg##{$font-name}', 'svg'
             ),
-            '#{$font-path}/#{$font-name-value}.eot', normal, normal
+            '#{$font-path}/#{$font-name}.eot', normal, normal
         );
         @if ($embed-woff) {
-            @include font-face('#{$font-name-value}',
-                inline-font-files('#{$font-path}/#{$font-name-value}.woff', woff)
+            @include font-face('#{$font-name}',
+                inline-font-files('#{$font-path}/#{$font-name}.woff', woff)
             );
         }
     }
 }
 
+@mixin opacity($opacity) {
+    opacity: $opacity;
+    $opacity-ie: $opacity * 100;
+    filter: alpha(opacity=$opacity-ie); //IE8
+}
