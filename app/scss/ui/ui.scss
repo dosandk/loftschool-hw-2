@@ -1,4 +1,22 @@
 @import "base";
+// Modules
+//
+// Reusable elements that can be used across the site.
+// So far this just includes buttons.
+//
+// Styleguide 1.
+
+.riba {
+        outline: 1px solid #808080;
+    width: 300px;
+    height: 50px;
+    &.blue {
+        background: #00f;
+    }
+    &.red {
+        background: red;
+    }
+}
 
 .main-wrapper {
     @extend %elektra-light-pro;

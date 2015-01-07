@@ -1,6 +1,6 @@
 @each $font-name, $font-weight-value in $elektra-fonts-names {
     %#{$font-name} {
         font-family: $font-name, map_get($elektra-fonts-fallbacks, $font-name);
-        font-weight: $font-weight-value;
+        font-weight: unquote($font-weight-value);
     }
 }
