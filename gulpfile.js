@@ -16,6 +16,8 @@ var gulp = require('gulp'),
     plumber = require('gulp-plumber'),
     uncss = require('gulp-uncss'),
     gulpkss = require('gulp-kss'),
+    uglify = require('gulp-uglify'),
+    del = require('del'),
     csscomb = require('gulp-csscomb'),
     compass = require('gulp-compass');
 
@@ -56,13 +58,41 @@ gulp.task('getBowerJsFiles', function() {
         .pipe(gulp.dest('app/riba'));
 });
 
-gulp.task('concatCss', function() {
+gulp.task('cleanBuildDir', function (cb) {
+    del(['dist/css', 'dist/img', 'dist/js'], cb);
+});
+
+gulp.task('buildImg', function() {
+    return gulp.src(['app/img/**', '!app/img/ui'])
+        .pipe(plumber())
+        .pipe(size({title: 'Before optimization'}))
+        .pipe(cache(imgOptimization({ optimizationLevel: 5, progressive: true, interlaced: true})))
+        .pipe(size({title: 'After optimization'}))
+        .pipe(gulp.dest('dist/img'));
+});
+
+gulp.task('buildJs', function() {
+    return gulp.src(['app/js/**', '!app/js/libs/html5js'])
+        .pipe(plumber())
+        .pipe(uglify())
+        .pipe(concat('ui.js'))
+        .pipe(size())
+        //.pipe(minify())
+        //.pipe(rename({suffix: '.min'}))
+        .pipe(gulp.dest('dist/js'))
+});
+
+gulp.task('buildCss', function() {
     return gulp.src(['app/css/**'])
         .pipe(plumber())
         .pipe(size({showFiles: true}))
+        .pipe(csscomb())
         .pipe(concat('ui.css'))
-        .pipe(size({title: 'Cleaned css'}))
         .pipe(size({title: 'Concatenated Css'}))
+        .pipe(uncss({
+            html: ['dist/index.html']
+        }))
+        .pipe(size({title: 'uncss'}))
         .pipe(minify())
         .pipe(rename({suffix: '.min'}))
         .pipe(size({title: 'Minified Css'}))
