@@ -1,12 +1,10 @@
 language: node_js
 
 node_js:
+  - "0.11"
   - "0.10"
 
-before_install:
-  - npm install gulp-install
-
-install:
-  - npm install
-  - gulp cleanBuildDir
-  - gulp buildCss
+before_script:
+  - npm install -g gulp
+  
+script: gulp
