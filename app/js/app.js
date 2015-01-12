@@ -77,3 +77,5 @@ app.jCarouselInit = function() {
         target: '+=1'
     });
 };
+
+app.initialize();

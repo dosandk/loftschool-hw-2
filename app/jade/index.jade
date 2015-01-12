@@ -1,7 +1,6 @@
 doctype html
-- var smallGalleryItem = 9
-- var productGalleryItem1 = 3
-- var productGalleryItem2 = 6
+include includes/_variables.jade
+
 html(lang="ru")
     head
         title loftschool homework-2
@@ -13,10 +12,12 @@ html(lang="ru")
         link(rel='icon' href='../favicon-logo-16x16.ico' type='image/x-icon')
         link(rel='shortcut icon' href='../favicon-logo-16x16.ico' type='image/x-icon')
 
+        // build:css
         link(type='text/css', rel="stylesheet", href="../css/ui/default.css")
         link(type='text/css', rel="stylesheet", href="../css/ui/ui.css")
         link(type='text/css', rel="stylesheet", href="../css/fonts/elektra.css")
         link(type='text/css', rel="stylesheet", href="../css/jquery-plugins/jcarousel.basic.css")
+        // endbuild
 
         <!--[if lt IE 9]>
         script(type='text/javascript', src='../js/libs/html5js/html5.js')
@@ -25,7 +26,6 @@ html(lang="ru")
     body
 
         div.main-wrapper
-
             div.container.cf
                 aside.left-side-bar
                     div.header-logo-container
@@ -47,13 +47,11 @@ html(lang="ru")
                                 div.display-table-cell.vertical-align-middle.to-right-inline.call-order-form-select-wrap
                                     div.display-inline-block.relative
                                         select.call-order-form-select.custom.font-size-12.right(id='day-of-call', name='dayOfCall')
-                                            - var days = 0
                                             while days++ < 31
                                                 option(value='#{days}') #{days}
                                         label.inline-icon.call-order-form-select-label(for='day-of-call')
                                     div.display-inline-block.relative
                                         select.call-order-form-select.custom.font-size-12.right(id='month-of-call', name='monthOfCall')
-                                            - var months = 0
                                             while months++ < 12
                                                 option(value='#{months}') #{months}
                                         label.inline-icon.call-order-form-select-label(for='month-of-call')
@@ -81,7 +79,6 @@ html(lang="ru")
                     div.carousel-container.relative
                         div.jcarousel
                             ul
-                                - var carouselItem = 4
                                 while carouselItem--
                                     li.img-carousel-item(style="background: url('../img/separated/carousel[#{carouselItem}]-740x300.jpg')", alt='carousel-item')
                         div.inline-icon.nav-arrow-left.font-size-17
@@ -155,53 +152,11 @@ html(lang="ru")
                                                 td.parent-half-width Вес
                                                 td.parent-half-width 9 кг
 
-            footer.footer
-                div.footer-inner-wrap.relative
-                    div#scroll-top-btn.display-table.to-center-inline.font-size-18.scroll-up-arrow
-                        span.vertical-align-middle.display-table-cell Наверх
-                    div.display-table.parent-size.fixed-table-layout
+            include includes/_footer.jade
 
-                        div.display-table-cell.vertical-align-middle
-                            a(href=''): img(src='../img/separated/logo-footer-139x39.png', alt='apple-shop-logo')
-                        div.display-table-cell.vertical-align-middle.footer-navigation-list.font-size-15
-                                div.footer-navigation-list-item
-                                    h3.footer-navigation-list-item-title О магазине
-                                    ul
-                                        li: a.footer-navigation-list-item-link(href="#") О нас
-                                        li: a.footer-navigation-list-item-link(href="#") Наши цены
-                                        li: a.footer-navigation-list-item-link(href="#") Наши скидки
-                                        li: a.footer-navigation-list-item-link(href="#") Акции
-                                div.footer-navigation-list-item
-                                    h3.footer-navigation-list-item-title Каталог
-                                    ul
-                                        li: a.footer-navigation-list-item-link(href="#") Смартфоны
-                                        li: a.footer-navigation-list-item-link(href="#") Планшеты
-                                        li: a.footer-navigation-list-item-link(href="#") Компьютеры
-                                        li: a.footer-navigation-list-item-link(href="#") Аксессуары
-                                div.footer-navigation-list-item
-                                    h3.footer-navigation-list-item-title Контакты
-                                    ul
-                                        li: a.footer-navigation-list-item-link(href="#") Телефоны
-                                        li: a.footer-navigation-list-item-link(href="#") Адреса
-                                        li: a.footer-navigation-list-item-link(href="#") Карта проезда
-                                        li: a.footer-navigation-list-item-link(href="#") Обратная связь
-                        div.display-table-cell.vertical-align-middle
-                            ul.store-wrapper.to-right-inline
-                                li.inline-icon.app-store-icon
-                                    a.display-block.parent-size(href="http://store.apple.com"): span.hide http://store.apple.com
-                                li.inline-icon.google-play-icon
-                                    a.display-block.parent-size(href="https://play.google.com"): span.hide https://play.google.com
-                            ul.to-center-inline.social-links-block
-                                li.inline-icon.social-icon.vk-social-icon: a.display-block.parent-size(href="https://vk.com"): span.hide https://vk.com
-                                li.inline-icon.social-icon.fb-social-icon: a.display-blockcf.parent-size(href="https://facebook.com"): span.hide https://facebook.com
-                                li.inline-icon.social-icon.tw-social-icon: a.display-block.parent-size(href="https://twitter.com"): span.hide https://twitter.com
-
-        //-- script(src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js")
-        //-- script
-            window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')
+        // build:js
         script(type='text/javascript', src='../js/libs/jquery/jquery.min.js')
         script(type='text/javascript', src='../js/libs/jquery-plugins/jquery.validate.min.js')
         script(type='text/javascript', src='../js/libs/jquery-plugins/jquery.jcarousel.min.js')
         script(type='text/javascript', src='../js/app.js')
-
-        script(type='text/javascript') $(function() {app.initialize()})
+        // endbuild
