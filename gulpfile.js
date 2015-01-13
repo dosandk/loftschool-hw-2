@@ -164,4 +164,4 @@ gulp.task('watch', function() {
     gulp.watch('./app/index.html', ['html']);
 });
 
-gulp.task('default', ['connect', 'html', 'concatCss', 'watch']);
+gulp.task('default', ['buildApp']);
