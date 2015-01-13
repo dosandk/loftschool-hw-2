@@ -15,6 +15,8 @@ var gulp = require('gulp'),
     assetpaths = require('gulp-assetpaths'),
     jade = require('gulp-jade'),
     htmlreplace = require('gulp-html-replace'),
+    imagemin = require('gulp-imagemin'),
+    pngquant = require('imagemin-pngquant'),
     compass = require('gulp-compass');
 
 var basePath = {
@@ -40,7 +42,6 @@ var destAssets = {
 /* --------------- BUILD TASKS --------------- */
 
 gulp.task('buildApp', ['buildHTML', 'buildCss', 'buildJs', 'buildIMG']);
-
 
 gulp.task('cleanBuildDir', function (cb) {
     del(['dist'], cb);
@@ -94,6 +95,10 @@ gulp.task('buildJs', ['buildCss'], function() {
 gulp.task('buildIMG', ['cleanBuildDir'], function() {
     return gulp.src(['app/img/**', '!app/img/{ui,ui/**}'])
         .pipe(plumber())
+        .pipe(imagemin({
+            progressive: true,
+            use: [pngquant()]
+        }))
         .pipe(gulp.dest('dist/img'));
 });
 
@@ -106,7 +111,6 @@ gulp.task('buildPHP', ['cleanBuildDir'], function() {
     return gulp.src('app/php-core/**')
         .pipe(gulp.dest('dist/php-core'));
 });
-
 
 /* --------------- ACCESSORY TASKS --------------- */
 
