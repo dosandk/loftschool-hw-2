@@ -1,26 +1,16 @@
 var gulp = require('gulp'),
     concat = require('gulp-concat'),
     minify = require('gulp-minify-css'),
-    prefix = require('gulp-autoprefixer'),
-    livereload = require('gulp-livereload'),
-    connect = require('gulp-connect'),
     mainBowerFiles = require('main-bower-files'),
     gulpFilter = require('gulp-filter'),
-    imgOptimization = require('gulp-image-optimization'),
-    imagemin = require('gulp-imagemin'),
-    optipng = require('gulp-optipng'),
     cache = require('gulp-cache'),
     rename = require('gulp-rename'),
-    notify = require('gulp-notify'),
     size = require('gulp-size'),
     plumber = require('gulp-plumber'),
     uncss = require('gulp-uncss'),
-    gulpkss = require('gulp-kss'),
     uglify = require('gulp-uglify'),
     del = require('del'),
     csscomb = require('gulp-csscomb'),
-    htmlmin = require('gulp-htmlmin'),
-    phantomcss = require('gulp-phantomcss'),
     preprocess = require('gulp-preprocess'),
     assetpaths = require('gulp-assetpaths'),
     jade = require('gulp-jade'),
@@ -71,7 +61,6 @@ gulp.task('buildHTML', ['cleanBuildDir'], function() {
             docRoot : 'dist',
             filetypes : ['png', 'jpg']
         }))
-        //.pipe(htmlmin({collapseWhitespace: true}))
         .pipe(gulp.dest('dist'))
 });
 
@@ -86,12 +75,6 @@ gulp.task('buildCss', ['buildHTML'], function() {
             html: ['dist/index.html']
         }))
         .pipe(size({title: 'uncss'}))
-        /*.pipe(assetpaths({
-         newDomain: 'vl-shevchuk.ru',
-         oldDomain : 'vl-shevchuk.ru',
-         docRoot : '/',
-         filetypes : ['png, jpg']
-         }))*/
         .pipe(minify())
         .pipe(rename({suffix: '.min'}))
         .pipe(size({title: 'Minified Css'}))
@@ -111,9 +94,6 @@ gulp.task('buildJs', ['buildCss'], function() {
 gulp.task('buildIMG', ['cleanBuildDir'], function() {
     return gulp.src(['app/img/**', '!app/img/{ui,ui/**}'])
         .pipe(plumber())
-        .pipe(size({title: 'Before optimization'}))
-        .pipe(cache(imgOptimization({ optimizationLevel: 5, progressive: true, interlaced: true})))
-        .pipe(size({title: 'After optimization'}))
         .pipe(gulp.dest('dist/img'));
 });
 
@@ -140,34 +120,10 @@ gulp.task('compass', function() {
         }));
 });
 
-gulp.task('phantomcss', function (){
-    gulp.src('./testsuite.js')
-        .pipe(phantomcss());
-});
-
 gulp.task('csscomb', function() {
     return gulp.src('app/css/**')
         .pipe(csscomb())
         .pipe(gulp.dest('app/riba/css'));
-});
-
-gulp.task('images', function() {
-
-    gulp.src('app/img/**')
-        .pipe(plumber())
-        .pipe(size({title: 'Before optimization'}))
-        .pipe(cache(imgOptimization({ optimizationLevel: 5, progressive: true, interlaced: true})))
-        .pipe(size({title: 'After optimization'}))
-        .pipe(gulp.dest('dist/img'));
-});
-
-// server connect
-gulp.task('connect', function() {
-    connect.server({
-        root: 'app',
-        port: 8000,
-        livereload: true
-    });
 });
 
 gulp.task('clearCache', function (done) {
@@ -189,35 +145,8 @@ gulp.task('minifyHTML', function() {
             docRoot : 'dist/html-min',
             filetypes : ['css', 'png', 'jpg']
         }))
-        //.pipe(htmlmin({collapseWhitespace: true}))
         //.pipe(rename({suffix: '.min'}))
         .pipe(gulp.dest('dist/html-min'))
-});
-
-gulp.task('kss', function() {
-    gulp.src(['app/scss/**/*.scss'])
-        .pipe(gulpkss({
-            overview: 'app/styleguide.md'
-        }))
-        .pipe(gulp.dest('app/styleguide/'));
-
-    gulp.src('app/scss/*.scss')
-        .pipe(compass({
-            config_file: 'config.rb',
-            css: 'app/css',
-            sass: 'app/scss'
-        }));
-
-    gulp.src('app/css/**/*.css')
-        .pipe(concat('style.css'))
-        .pipe(gulp.dest('app/styleguide/public'));
-
-});
-
-var config = require('./gulp-config.json');
-
-gulp.task('riba', function() {
-    console.log(config);
 });
 
 gulp.task('uncss', function() {
@@ -229,10 +158,6 @@ gulp.task('uncss', function() {
         .pipe(gulp.dest('dist/css/out'));
 });
 
-gulp.task('html', function() {
-    gulp.src(['./app/index.html'])
-        .pipe(connect.reload());
-});
 
 gulp.task('watch', function() {
     gulp.watch('./dev/css/*.css', ['concatCss']);
