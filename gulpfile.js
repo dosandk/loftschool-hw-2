@@ -17,6 +17,7 @@ var gulp = require('gulp'),
     htmlreplace = require('gulp-html-replace'),
     imagemin = require('gulp-imagemin'),
     pngquant = require('imagemin-pngquant'),
+    newer = require('gulp-newer'),
     compass = require('gulp-compass');
 
 var basePath = {
@@ -41,7 +42,7 @@ var destAssets = {
 
 /* --------------- BUILD TASKS --------------- */
 
-gulp.task('buildApp', ['buildHTML', 'buildCss', 'buildJs', 'buildIMG']);
+gulp.task('buildApp', ['buildHTML', 'buildCss', 'buildJs', 'buildIMG', 'buildFonts', 'buildPHP']);
 
 gulp.task('cleanBuildDir', function (cb) {
     del(['dist'], cb);
@@ -83,9 +84,15 @@ gulp.task('buildCss', ['buildHTML'], function() {
 });
 
 gulp.task('buildJs', ['buildCss'], function() {
-    return gulp.src(['app/js/**', '!app/js/libs/{html5js,html5js/**}'])
+    return gulp.src(['app/js/libs/**', 'app/js/app.js', '!app/js/libs/{html5js,html5js/**}'])
         .pipe(plumber())
         .pipe(concat('ui.js'))
+        .pipe(assetpaths({
+            newDomain: '.',
+            oldDomain : 'old-domain',
+            docRoot : 'dist',
+            filetypes : ['php']
+        }))
         .pipe(uglify())
         .pipe(rename({suffix: '.min'}))
         .pipe(size())
@@ -99,6 +106,7 @@ gulp.task('buildIMG', ['cleanBuildDir'], function() {
             progressive: true,
             use: [pngquant()]
         }))
+        .pipe(size({showFiles: true}))
         .pipe(gulp.dest('dist/img'));
 });
 
@@ -110,6 +118,23 @@ gulp.task('buildFonts', ['cleanBuildDir'], function() {
 gulp.task('buildPHP', ['cleanBuildDir'], function() {
     return gulp.src('app/php-core/**')
         .pipe(gulp.dest('dist/php-core'));
+});
+
+/* --------------- WATCHERS --------------- */
+
+gulp.task('watch', function() {
+    gulp.watch('app/img/**', ['compressImg']);
+    //gulp.watch('./app/index.html', ['html']);
+});
+
+gulp.task('compressImg', function() {
+    return gulp.src('app/img/**')
+        .pipe(newer('app/img'))
+        .pipe(imagemin({
+            progressive: true,
+            use: [pngquant()]
+        }))
+        .pipe(gulp.dest('app/img'));
 });
 
 /* --------------- ACCESSORY TASKS --------------- */
@@ -162,10 +187,5 @@ gulp.task('uncss', function() {
         .pipe(gulp.dest('dist/css/out'));
 });
 
-
-gulp.task('watch', function() {
-    gulp.watch('./dev/css/*.css', ['concatCss']);
-    gulp.watch('./app/index.html', ['html']);
-});
 
 gulp.task('default', ['buildApp']);

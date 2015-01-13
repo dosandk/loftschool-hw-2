@@ -33,7 +33,7 @@ app.orderFormValidationInit = function () {
             error.appendTo(element.next('.error-wrapper'));
         },
         success: function(label) {
-            console.error(1);
+            //console.error(1);
         },
         submitHandler: function(form) {
             $.ajax({
