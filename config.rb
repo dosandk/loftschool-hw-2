@@ -9,10 +9,7 @@ sass_dir = "app/scss"
 images_dir = "app/img"
 javascripts_dir = "app/js"
 fonts_dir = "app/fonts"
-generated_images_dir = "./img/spritesheets"
-
-http_generated_images_path = "./../../../img/spritesheets"
-
+generated_images_dir = "app/img/spritesheets"
 
 # You can select your preferred output style here (can be overridden via the command line):
 # output_style = :expanded or :nested or :compact or :compressed

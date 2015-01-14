@@ -124,7 +124,8 @@ gulp.task('buildPHP', ['cleanBuildDir'], function() {
 
 gulp.task('watch', function() {
     gulp.watch('app/img/**', ['compressImg']);
-    //gulp.watch('./app/index.html', ['html']);
+    gulp.watch('app/scss/**', ['compileScss']);
+    gulp.watch('app/jade/**', ['compileJade']);
 });
 
 gulp.task('compressImg', function() {
@@ -137,17 +138,25 @@ gulp.task('compressImg', function() {
         .pipe(gulp.dest('app/img'));
 });
 
-/* --------------- ACCESSORY TASKS --------------- */
+gulp.task('compileJade', function() {
+    return gulp.src('./app/jade/*.jade')
+        .pipe(plumber())
+        .pipe(jade({pretty: true}))
+        .pipe(gulp.dest('app/html'));
+});
 
-gulp.task('compass', function() {
-    gulp.src(srcAssets.scss + '*.scss')
+gulp.task('compileScss', function() {
+    return gulp.src(srcAssets.scss + '*.scss')
         .pipe(plumber())
         .pipe(compass({
             config_file: 'config.rb',
             css: srcAssets.css,
             sass: srcAssets.scss
-        }));
+        }))
+        .pipe(gulp.dest('app/css'));
 });
+
+/* --------------- ACCESSORY TASKS --------------- */
 
 gulp.task('csscomb', function() {
     return gulp.src('app/css/**')
