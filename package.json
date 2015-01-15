@@ -23,6 +23,7 @@
     "gulp-cache": "^0.2.4",
     "gulp-compass": "^2.0.3",
     "gulp-concat": "2.4.1",
+    "gulp-connect": "^2.2.0",
     "gulp-csscomb": "^3.0.3",
     "gulp-filter": "^2.0.0",
     "gulp-html-replace": "^1.4.1",

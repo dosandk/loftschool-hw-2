@@ -18,6 +18,7 @@ var gulp = require('gulp'),
     imagemin = require('gulp-imagemin'),
     pngquant = require('imagemin-pngquant'),
     newer = require('gulp-newer'),
+    connect = require('gulp-connect'),
     compass = require('gulp-compass');
 
 var basePath = {
@@ -25,19 +26,23 @@ var basePath = {
     dist : 'dist/'
 };
 
-var srcAssets = {
-    css   : basePath.app + 'css/',
-    js    : basePath.app + 'js/',
-    img   : basePath.app + 'img/',
-    fonts : basePath.app + 'fonts/',
-    core  : basePath.app + 'php-core/',
-    scss  : basePath.app + 'scss/'
+var appPaths = {
+    css     : basePath.app + 'css/',
+    js      : basePath.app + 'js/',
+    jade    : basePath.app + 'jade/',
+    html    : basePath.app + 'html/',
+    img     : basePath.app + 'img/',
+    fonts   : basePath.app + 'fonts/',
+    phpCore : basePath.app + 'php-core/',
+    scss    : basePath.app + 'scss/'
 };
 
-var destAssets = {
-    css  : basePath.dist + 'css/',
-    js   : basePath.dist + 'js/',
-    img  : basePath.dist + 'img/'
+var distPaths = {
+    css     : basePath.dist + 'css/',
+    js      : basePath.dist + 'js/',
+    img     : basePath.dist + 'img/',
+    fonts   : basePath.dist + 'fonts/',
+    phpCore : basePath.dist + 'php-core/'
 };
 
 /* --------------- BUILD TASKS --------------- */
@@ -45,11 +50,11 @@ var destAssets = {
 gulp.task('buildApp', ['buildHTML', 'buildCss', 'buildJs', 'buildIMG', 'buildFonts', 'buildPHP']);
 
 gulp.task('cleanBuildDir', function (cb) {
-    del(['dist'], cb);
+    del([basePath.dist], cb);
 });
 
 gulp.task('buildHTML', ['cleanBuildDir'], function() {
-    gulp.src('./app/jade/*.jade')
+    gulp.src(appPaths.jade +'*.jade')
         .pipe(plumber())
         .pipe(jade({pretty: true}))
         .pipe(preprocess({context: { environment: 'production', DEBUG: true }}))
@@ -60,39 +65,43 @@ gulp.task('buildHTML', ['cleanBuildDir'], function() {
         .pipe(assetpaths({
             newDomain: '.',
             oldDomain : 'old-domain',
-            docRoot : 'dist',
+            docRoot : basePath.dist,
             filetypes : ['png', 'jpg']
         }))
-        .pipe(gulp.dest('dist'))
+        .pipe(gulp.dest(basePath.dist))
 });
 
 gulp.task('buildCss', ['buildHTML'], function() {
-    return gulp.src(['app/css/**'])
+    return gulp.src([appPaths.css + '**'])
         .pipe(plumber())
         .pipe(size({showFiles: true}))
         .pipe(csscomb())
         .pipe(concat('ui.css'))
         .pipe(size({title: 'Concatenated Css'}))
         .pipe(uncss({
-            html: ['dist/index.html']
+            html: [basePath.dist + 'index.html']
         }))
         .pipe(size({title: 'uncss'}))
         .pipe(minify())
         .pipe(rename({suffix: '.min'}))
         .pipe(size({title: 'Minified Css'}))
-        .pipe(gulp.dest('dist/css/'));
+        .pipe(gulp.dest(distPaths.css));
 });
 
 gulp.task('buildJs', ['buildCss'], function() {
-    return gulp.src(['app/js/libs/**', 'app/js/app.js', '!app/js/libs/{html5js,html5js/**}'])
+    return gulp.src([
+            appPaths.js + 'libs/**',
+            appPaths.js + 'app.js',
+            '!' + appPaths.js + 'libs/{html5js,html5js/**}'
+        ])
         .pipe(plumber())
         .pipe(concat('ui.js'))
-        .pipe(assetpaths({
+        /*.pipe(assetpaths({
             newDomain: '.',
             oldDomain : 'old-domain',
             docRoot : 'dist',
             filetypes : ['php']
-        }))
+        }))*/
         .pipe(uglify())
         .pipe(rename({suffix: '.min'}))
         .pipe(size())
@@ -100,60 +109,74 @@ gulp.task('buildJs', ['buildCss'], function() {
 });
 
 gulp.task('buildIMG', ['cleanBuildDir'], function() {
-    return gulp.src(['app/img/**', '!app/img/{ui,ui/**}'])
+    return gulp.src([
+            appPaths.img + '**',
+            '!' + appPaths.img + '{ui,ui/**}'
+        ])
         .pipe(plumber())
         .pipe(imagemin({
             progressive: true,
             use: [pngquant()]
         }))
         .pipe(size({showFiles: true}))
-        .pipe(gulp.dest('dist/img'));
+        .pipe(gulp.dest(distPaths.img));
 });
 
 gulp.task('buildFonts', ['cleanBuildDir'], function() {
-    return gulp.src('app/fonts/**')
-        .pipe(gulp.dest('dist/fonts'));
+    return gulp.src(appPaths.fonts + '**')
+        .pipe(gulp.dest(distPaths.fonts));
 });
 
 gulp.task('buildPHP', ['cleanBuildDir'], function() {
-    return gulp.src('app/php-core/**')
-        .pipe(gulp.dest('dist/php-core'));
+    return gulp.src(appPaths.phpCore + '**')
+        .pipe(gulp.dest(distPaths.phpCore));
 });
 
-/* --------------- WATCHERS --------------- */
+/* --------------- WATCHERS AND LIVERELOAD--------------- */
 
-gulp.task('watch', function() {
-    gulp.watch('app/img/**', ['compressImg']);
-    gulp.watch('app/scss/**', ['compileScss']);
-    gulp.watch('app/jade/**', ['compileJade']);
+gulp.task('watch', ['connect'], function() {
+    gulp.watch(appPaths.img + '**', ['compressImg']);
+    gulp.watch(appPaths.scss + '**', ['compileScss']);
+    gulp.watch(appPaths.jade + '**', ['compileJade']);
 });
 
 gulp.task('compressImg', function() {
-    return gulp.src('app/img/**')
-        .pipe(newer('app/img'))
+    return gulp.src(appPaths.img + '**')
+        .pipe(newer(appPaths.img))
         .pipe(imagemin({
             progressive: true,
             use: [pngquant()]
         }))
-        .pipe(gulp.dest('app/img'));
+        .pipe(gulp.dest(appPaths.img));
 });
 
 gulp.task('compileJade', function() {
-    return gulp.src('./app/jade/*.jade')
+    return gulp.src(appPaths.jade + '*.jade')
         .pipe(plumber())
         .pipe(jade({pretty: true}))
-        .pipe(gulp.dest('app/html'));
+        .pipe(gulp.dest(appPaths.html))
+        .pipe(connect.reload());
 });
 
 gulp.task('compileScss', function() {
-    return gulp.src(srcAssets.scss + '*.scss')
+    return gulp.src(appPaths.scss + '**')
         .pipe(plumber())
         .pipe(compass({
             config_file: 'config.rb',
-            css: srcAssets.css,
-            sass: srcAssets.scss
+            css: 'app/css',
+            sass: 'app/scss'
         }))
-        .pipe(gulp.dest('app/css'));
+        .pipe(gulp.dest('app/css'))
+        .pipe(connect.reload());
+});
+
+// server connect
+gulp.task('connect', function() {
+    connect.server({
+        root: 'app',
+        port: 8000,
+        livereload: true
+    });
 });
 
 /* --------------- ACCESSORY TASKS --------------- */
