@@ -4,12 +4,12 @@ require 'susy'
 
 # Set this to the root of your project when deployed:
 http_path = "/"
-css_dir = "app/css"
-sass_dir = "app/scss"
-images_dir = "app/img"
-javascripts_dir = "app/js"
-fonts_dir = "app/fonts"
-generated_images_dir = "app/img/spritesheets"
+css_dir = "css"
+sass_dir = "scss"
+images_dir = "img"
+javascripts_dir = "js"
+fonts_dir = "fonts"
+generated_images_dir = "img/spritesheets"
 
 # You can select your preferred output style here (can be overridden via the command line):
 # output_style = :expanded or :nested or :compact or :compressed

@@ -187,7 +187,7 @@ html, body {
 /* ======================================= */
 .inline-icon {
   display: inline-block;
-  background-image: url('../../../img/spritesheets/ui.png');
+  background-image: url('../../img/spritesheets/ui.png');
   background-repeat: no-repeat;
 }
 

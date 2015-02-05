@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <title>loftschool homework-2</title>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="favicon-logo-16x16.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="favicon-logo-16x16.ico" type="image/x-icon">
+    <!-- build:css-->
+    <link type="text/css" rel="stylesheet" href="css/ui/default.css">
+    <link type="text/css" rel="stylesheet" href="css/ui/ui.css">
+    <link type="text/css" rel="stylesheet" href="css/fonts/elektra.css">
+    <link type="text/css" rel="stylesheet" href="css/jquery-plugins/jcarousel.basic.css">
+    <!-- endbuild-->
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="js/libs/html5js/html5.js"></script><![endif]-->
+  </head>
+  <body>
+    <div class="main-wrapper">
+      <div class="container cf">
+        <aside class="left-side-bar">
+          <div class="header-logo-container"><a href="#"><img src="img/separated/logo-199x57.png" alt="apple-shop-logo" class="vertical-align-middle"></a></div>
+          <article class="order-form">
+            <div class="order-form-title font-size-25">Заказать звонок</div>
+            <form id="call-order-form" action="javascript:void(0)">
+              <div class="call-order-form-fieldset">
+                <label for="user-name" class="call-order-form-label font-size-14">Ваше имя</label>
+                <input id="user-name" name="userName" type="text" placeholder="Ваше имя" class="call-order-form-input right font-size-12">
+                <div class="error-wrapper font-size-12"></div>
+              </div>
+              <div class="call-order-form-fieldset">
+                <label for="user-phone-number" class="call-order-form-label font-size-14">Телефон</label>
+                <input id="user-phone-number" name="userPhoneNumber" type="text" placeholder="+7 (912) 000-00-00" class="call-order-form-input right font-size-12">
+                <div class="error-wrapper font-size-12"></div>
+              </div>
+              <div class="call-order-form-fieldset display-table parent-width">
+                <div class="display-table-cell vertical-align-middle">
+                  <label class="font-size-14">Дата звонка</label>
+                </div>
+                <div class="display-table-cell vertical-align-middle to-right-inline call-order-form-select-wrap">
+                  <div class="display-inline-block relative">
+                    <select id="day-of-call" name="dayOfCall" class="call-order-form-select custom font-size-12 right">
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                      <option value="6">6</option>
+                      <option value="7">7</option>
+                      <option value="8">8</option>
+                      <option value="9">9</option>
+                      <option value="10">10</option>
+                      <option value="11">11</option>
+                      <option value="12">12</option>
+                      <option value="13">13</option>
+                      <option value="14">14</option>
+                      <option value="15">15</option>
+                      <option value="16">16</option>
+                      <option value="17">17</option>
+                      <option value="18">18</option>
+                      <option value="19">19</option>
+                      <option value="20">20</option>
+                      <option value="21">21</option>
+                      <option value="22">22</option>
+                      <option value="23">23</option>
+                      <option value="24">24</option>
+                      <option value="25">25</option>
+                      <option value="26">26</option>
+                      <option value="27">27</option>
+                      <option value="28">28</option>
+                      <option value="29">29</option>
+                      <option value="30">30</option>
+                      <option value="31">31</option>
+                    </select>
+                    <label for="day-of-call" class="inline-icon call-order-form-select-label"></label>
+                  </div>
+                  <div class="display-inline-block relative">
+                    <select id="month-of-call" name="monthOfCall" class="call-order-form-select custom font-size-12 right">
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                      <option value="6">6</option>
+                      <option value="7">7</option>
+                      <option value="8">8</option>
+                      <option value="9">9</option>
+                      <option value="10">10</option>
+                      <option value="11">11</option>
+                      <option value="12">12</option>
+                    </select>
+                    <label for="month-of-call" class="inline-icon call-order-form-select-label"></label>
+                  </div>
+                </div>
+              </div>
+              <div class="call-order-form-fieldset">
+                <textarea id="user-message" name="userMessage" placeholder="Комментарий" class="call-order-form-textarea font-size-12"></textarea>
+                <div class="error-wrapper font-size-12"></div>
+              </div>
+              <input type="submit" value="Отправить" class="order-form-submit-btn">
+              <input type="reset" value="Очистить" class="order-form-reset-btn right">
+            </form>
+          </article>
+          <article class="gallery">
+            <ul class="gallery-list">
+              <li class="gallery-list-item"><a href="#"><img src="img/separated/gallery-icon[8]-70x70.png" alt="gallery-item" class="vertical-align-middle"></a></li>
+              <li class="gallery-list-item"><a href="#"><img src="img/separated/gallery-icon[7]-70x70.png" alt="gallery-item" class="vertical-align-middle"></a></li>
+              <li class="gallery-list-item"><a href="#"><img src="img/separated/gallery-icon[6]-70x70.png" alt="gallery-item" class="vertical-align-middle"></a></li>
+              <li class="gallery-list-item"><a href="#"><img src="img/separated/gallery-icon[5]-70x70.png" alt="gallery-item" class="vertical-align-middle"></a></li>
+              <li class="gallery-list-item"><a href="#"><img src="img/separated/gallery-icon[4]-70x70.png" alt="gallery-item" class="vertical-align-middle"></a></li>
+              <li class="gallery-list-item"><a href="#"><img src="img/separated/gallery-icon[3]-70x70.png" alt="gallery-item" class="vertical-align-middle"></a></li>
+              <li class="gallery-list-item"><a href="#"><img src="img/separated/gallery-icon[2]-70x70.png" alt="gallery-item" class="vertical-align-middle"></a></li>
+              <li class="gallery-list-item"><a href="#"><img src="img/separated/gallery-icon[1]-70x70.png" alt="gallery-item" class="vertical-align-middle"></a></li>
+              <li class="gallery-list-item"><a href="#"><img src="img/separated/gallery-icon[0]-70x70.png" alt="gallery-item" class="vertical-align-middle"></a></li>
+            </ul>
+          </article>
+          <article class="display-table-cell vertical-align-middle contacts font-size-14">
+            <div><span class="inline-icon vertical-align-middle location-icon"></span><span>г. Москва, ул. Новая 246, офис 214.</span></div>
+            <div><span class="inline-icon vertical-align-middle phone-icon"></span><span><a href="tel:+79213221232" class="contact-phone">
+                  <script type="text/javascript">document.write('+7(921) 322-12-32')</script></a></span></div>
+          </article>
+        </aside>
+        <section class="content">
+          <div class="carousel-container relative">
+            <div class="jcarousel">
+              <ul>
+                <li style="background: url('img/separated/carousel[3]-740x300.jpg')" alt="carousel-item" class="img-carousel-item"></li>
+                <li style="background: url('img/separated/carousel[2]-740x300.jpg')" alt="carousel-item" class="img-carousel-item"></li>
+                <li style="background: url('img/separated/carousel[1]-740x300.jpg')" alt="carousel-item" class="img-carousel-item"></li>
+                <li style="background: url('img/separated/carousel[0]-740x300.jpg')" alt="carousel-item" class="img-carousel-item"></li>
+              </ul>
+            </div>
+            <div class="inline-icon nav-arrow-left font-size-17">
+              <div class="display-table parent-size jcarousel-control-prev none-selectable to-center-inline"><span class="display-table-cell vertical-align-middle nav-arrow-txt">Пред.</span></div>
+            </div>
+            <div class="inline-icon nav-arrow-right font-size-17">
+              <div class="display-table parent-size jcarousel-control-next none-selectable to-center-inline"><span class="display-table-cell vertical-align-middle nav-arrow-txt">След.</span></div>
+            </div>
+            <div class="img-description-block">
+              <div class="font-size-18"><a href="#" class="img-description-block-title-link">iMac за пол цены</a></div>
+              <div class="img-description-block-txt font-size-14">Принеси свой старый Mac и получи скидку на новый!</div>
+            </div>
+          </div>
+          <section class="main-gallery">
+            <article>
+              <header class="main-gallery-header display-table parent-width fixed-table-layout">
+                <div class="display-table-cell vertical-align-middle">
+                  <div class="header-line"></div>
+                </div>
+                <h2 class="display-table-cell vertical-align-middle gallery-category-title font-size-25">Популярные товары</h2>
+                <div class="display-table-cell vertical-align-middle">
+                  <div class="header-line"></div>
+                </div>
+              </header>
+              <ul class="main-gallery-list cf">
+                <li class="main-gallery-list-item">
+                  <div class="display-table parent-width fixed-table-layout product-view-table">
+                    <div class="display-table-cell vertical-align-middle product-view-img"><img src="img/separated/product-[2].jpg" alt="product-[2"></div>
+                    <div class="display-table-cell vertical-align-middle product-view-description font-size-15"><a href="#" class="product-view-description-link">Apple Thunderb Display 27''</a></div>
+                  </div>
+                  <table class="product-description-table parent-width fixed-table-layout font-size-14">
+                    <tr>
+                      <td class="parent-half-width">Артикул</td>
+                      <td class="parent-half-width">42787825</td>
+                    </tr>
+                    <tr>
+                      <td class="parent-half-width">Опция</td>
+                      <td class="parent-half-width">включена</td>
+                    </tr>
+                    <tr>
+                      <td class="parent-half-width">Цвет</td>
+                      <td class="parent-half-width">серебристый</td>
+                    </tr>
+                    <tr>
+                      <td class="parent-half-width">Размер</td>
+                      <td class="parent-half-width">1280*1245*90</td>
+                    </tr>
+                    <tr>
+                      <td class="parent-half-width">Вес</td>
+                      <td class="parent-half-width">9 кг</td>
+                    </tr>
+                  </table>
+                </li>
+                <li class="main-gallery-list-item">
+                  <div class="display-table parent-width fixed-table-layout product-view-table">
+                    <div class="display-table-cell vertical-align-middle product-view-img"><img src="img/separated/product-[1].jpg" alt="product-[1"></div>
+                    <div class="display-table-cell vertical-align-middle product-view-description font-size-15"><a href="#" class="product-view-description-link">Apple Thunderb Display 27''</a></div>
+                  </div>
+                  <table class="product-description-table parent-width fixed-table-layout font-size-14">
+                    <tr>
+                      <td class="parent-half-width">Артикул</td>
+                      <td class="parent-half-width">42787825</td>
+                    </tr>
+                    <tr>
+                      <td class="parent-half-width">Опция</td>
+                      <td class="parent-half-width">включена</td>
+                    </tr>
+                    <tr>
+                      <td class="parent-half-width">Цвет</td>
+                      <td class="parent-half-width">серебристый</td>
+                    </tr>
+                    <tr>
+                      <td class="parent-half-width">Размер</td>
+                      <td class="parent-half-width">1280*1245*90</td>
+                    </tr>
+                    <tr>
+                      <td class="parent-half-width">Вес</td>
+                      <td class="parent-half-width">9 кг</td>
+                    </tr>
+                  </table>
+                </li>
+                <li class="main-gallery-list-item">
+                  <div class="display-table parent-width fixed-table-layout product-view-table">
+                    <div class="display-table-cell vertical-align-middle product-view-img"><img src="img/separated/product-[0].jpg" alt="product-[0"></div>
+                    <div class="display-table-cell vertical-align-middle product-view-description font-size-15"><a href="#" class="product-view-description-link">Apple Thunderb Display 27''</a></div>
+                  </div>
+                  <table class="product-description-table parent-width fixed-table-layout font-size-14">
+                    <tr>
+                      <td class="parent-half-width">Артикул</td>
+                      <td class="parent-half-width">42787825</td>
+                    </tr>
+                    <tr>
+                      <td class="parent-half-width">Опция</td>
+                      <td class="parent-half-width">включена</td>
+                    </tr>
+                    <tr>
+                      <td class="parent-half-width">Цвет</td>
+                      <td class="parent-half-width">серебристый</td>
+                    </tr>
+                    <tr>
+                      <td class="parent-half-width">Размер</td>
+                      <td class="parent-half-width">1280*1245*90</td>
+                    </tr>
+                    <tr>
+                      <td class="parent-half-width">Вес</td>
+                      <td class="parent-half-width">9 кг</td>
+                    </tr>
+                  </table>
+                </li>
+              </ul>
+            </article>
+            <article>
+              <header class="main-gallery-header display-table parent-width fixed-table-layout">
+                <div class="display-table-cell vertical-align-middle">
+                  <div class="header-line"></div>
+                </div>
+                <h2 class="display-table-cell vertical-align-middle gallery-category-title font-size-25">Товары со скидкой</h2>
+                <div class="display-table-cell vertical-align-middle">
+                  <div class="header-line"></div>
+                </div>
+              </header>
+              <ul class="main-gallery-list cf">
+                <li class="main-gallery-list-item">
+                  <div class="display-table parent-width fixed-table-layout product-view-table">
+                    <div class="display-table-cell vertical-align-middle product-view-img"><img src="img/separated/product-[5].jpg"></div>
+                    <div class="display-table-cell vertical-align-middle product-view-description font-size-15"><a href="#" class="product-view-description-link">Apple Thunderb Display 27''</a></div>
+                  </div>
+                  <table class="product-description-table parent-width fixed-table-layout font-size-14">
+                    <tr>
+                      <td class="parent-half-width">Артикул</td>
+                      <td class="parent-half-width">42787825</td>
+                    </tr>
+                    <tr>
+                      <td class="parent-half-width">Опция</td>
+                      <td class="parent-half-width">включена</td>
+                    </tr>
+                    <tr>
+                      <td class="parent-half-width">Цвет</td>
+                      <td class="parent-half-width">серебристый</td>
+                    </tr>
+                    <tr>
+                      <td class="parent-half-width">Размер</td>
+                      <td class="parent-half-width">1280*1245*90</td>
+                    </tr>
+                    <tr>
+                      <td class="parent-half-width">Вес</td>
+                      <td class="parent-half-width">9 кг</td>
+                    </tr>
+                  </table>
+                </li>
+                <li class="main-gallery-list-item">
+                  <div class="display-table parent-width fixed-table-layout product-view-table">
+                    <div class="display-table-cell vertical-align-middle product-view-img"><img src="img/separated/product-[4].jpg"></div>
+                    <div class="display-table-cell vertical-align-middle product-view-description font-size-15"><a href="#" class="product-view-description-link">Apple Thunderb Display 27''</a></div>
+                  </div>
+                  <table class="product-description-table parent-width fixed-table-layout font-size-14">
+                    <tr>
+                      <td class="parent-half-width">Артикул</td>
+                      <td class="parent-half-width">42787825</td>
+                    </tr>
+                    <tr>
+                      <td class="parent-half-width">Опция</td>
+                      <td class="parent-half-width">включена</td>
+                    </tr>
+                    <tr>
+                      <td class="parent-half-width">Цвет</td>
+                      <td class="parent-half-width">серебристый</td>
+                    </tr>
+                    <tr>
+                      <td class="parent-half-width">Размер</td>
+                      <td class="parent-half-width">1280*1245*90</td>
+                    </tr>
+                    <tr>
+                      <td class="parent-half-width">Вес</td>
+                      <td class="parent-half-width">9 кг</td>
+                    </tr>
+                  </table>
+                </li>
+                <li class="main-gallery-list-item">
+                  <div class="display-table parent-width fixed-table-layout product-view-table">
+                    <div class="display-table-cell vertical-align-middle product-view-img"><img src="img/separated/product-[3].jpg"></div>
+                    <div class="display-table-cell vertical-align-middle product-view-description font-size-15"><a href="#" class="product-view-description-link">Apple Thunderb Display 27''</a></div>
+                  </div>
+                  <table class="product-description-table parent-width fixed-table-layout font-size-14">
+                    <tr>
+                      <td class="parent-half-width">Артикул</td>
+                      <td class="parent-half-width">42787825</td>
+                    </tr>
+                    <tr>
+                      <td class="parent-half-width">Опция</td>
+                      <td class="parent-half-width">включена</td>
+                    </tr>
+                    <tr>
+                      <td class="parent-half-width">Цвет</td>
+                      <td class="parent-half-width">серебристый</td>
+                    </tr>
+                    <tr>
+                      <td class="parent-half-width">Размер</td>
+                      <td class="parent-half-width">1280*1245*90</td>
+                    </tr>
+                    <tr>
+                      <td class="parent-half-width">Вес</td>
+                      <td class="parent-half-width">9 кг</td>
+                    </tr>
+                  </table>
+                </li>
+              </ul>
+            </article>
+          </section>
+        </section>
+      </div>
+      <footer class="footer">
+        <div class="footer-inner-wrap relative">
+          <div id="scroll-top-btn" class="display-table to-center-inline font-size-18 scroll-up-arrow"><span class="vertical-align-middle display-table-cell">Наверх</span></div>
+          <div class="display-table parent-size fixed-table-layout">
+            <div class="display-table-cell vertical-align-middle"><a href=""><img src="img/separated/logo-footer-139x39.png" alt="apple-shop-logo"></a></div>
+            <div class="display-table-cell vertical-align-middle footer-navigation-list font-size-15">
+              <div class="footer-navigation-list-item">
+                <h3 class="footer-navigation-list-item-title">О магазине</h3>
+                <ul>
+                  <li><a href="#" class="footer-navigation-list-item-link">О нас</a></li>
+                  <li><a href="#" class="footer-navigation-list-item-link">Наши цены</a></li>
+                  <li><a href="#" class="footer-navigation-list-item-link">Наши скидки</a></li>
+                  <li><a href="#" class="footer-navigation-list-item-link">Акции</a></li>
+                </ul>
+              </div>
+              <div class="footer-navigation-list-item">
+                <h3 class="footer-navigation-list-item-title">Каталог</h3>
+                <ul>
+                  <li><a href="#" class="footer-navigation-list-item-link">Смартфоны</a></li>
+                  <li><a href="#" class="footer-navigation-list-item-link">Планшеты</a></li>
+                  <li><a href="#" class="footer-navigation-list-item-link">Компьютеры</a></li>
+                  <li><a href="#" class="footer-navigation-list-item-link">Аксессуары</a></li>
+                </ul>
+              </div>
+              <div class="footer-navigation-list-item">
+                <h3 class="footer-navigation-list-item-title">Контакты</h3>
+                <ul>
+                  <li><a href="#" class="footer-navigation-list-item-link">Телефоны</a></li>
+                  <li><a href="#" class="footer-navigation-list-item-link">Адреса</a></li>
+                  <li><a href="#" class="footer-navigation-list-item-link">Карта проезда</a></li>
+                  <li><a href="#" class="footer-navigation-list-item-link">Обратная связь</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="display-table-cell vertical-align-middle">
+              <ul class="store-wrapper to-right-inline">
+                <li class="inline-icon app-store-icon"><a href="http://store.apple.com" class="display-block parent-size"><span class="hide">http://store.apple.com</span></a></li>
+                <li class="inline-icon google-play-icon"><a href="https://play.google.com" class="display-block parent-size"><span class="hide">https://play.google.com</span></a></li>
+              </ul>
+              <ul class="to-center-inline social-links-block">
+                <li class="inline-icon social-icon vk-social-icon"><a href="https://vk.com" class="display-block parent-size"><span class="hide">https://vk.com</span></a></li>
+                <li class="inline-icon social-icon fb-social-icon"><a href="https://facebook.com" class="display-blockcf parent-size"><span class="hide">https://facebook.com</span></a></li>
+                <li class="inline-icon social-icon tw-social-icon"><a href="https://twitter.com" class="display-block parent-size"><span class="hide">https://twitter.com</span></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <!-- build:js-->
+    <script type="text/javascript" src="js/libs/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="js/libs/jquery-plugins/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="js/libs/jquery-plugins/jquery.jcarousel.min.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+    <!-- endbuild-->
+  </body>
+</html>
